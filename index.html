@@ -47,7 +47,6 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 
-/* Subtle noise texture overlay */
 body::before{
   content:"";
   position:fixed;
@@ -294,7 +293,6 @@ header{
   color:#0a0b10;
 }
 
-/* Hero image */
 .hero-image{
   position:relative;
   justify-self:end;
@@ -646,6 +644,221 @@ header{
 .project-link:hover{color:var(--accent-2);}
 
 /* ===============================
+   YOUTUBE & INSTAGRAM SECTIONS
+================================*/
+.media-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+  gap:1.5rem;
+}
+
+/* YouTube */
+.video-card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:18px;
+  overflow:hidden;
+  transition:.35s;
+}
+.video-card:hover{
+  border-color:var(--border-hover);
+  transform:translateY(-4px);
+  box-shadow:0 20px 40px rgba(0,0,0,.4);
+}
+.video-facade{
+  position:relative;
+  width:100%;
+  padding-top:56.25%; /* 16:9 Aspect Ratio */
+  background:#000;
+  cursor:pointer;
+  border-bottom:1px solid var(--border);
+}
+.video-facade img {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0.8;
+  transition:opacity 0.3s;
+}
+.video-facade:hover img { opacity:1; }
+
+.video-play-btn{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  width:68px;
+  height:48px;
+  background:var(--accent); /* Changed to Accent Gold */
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all 0.3s;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
+  z-index:2;
+}
+.video-play-btn i {
+  width:28px;
+  height:28px;
+  color:#0a0b10; /* Dark icon on gold background */
+  fill:#0a0b10;
+  margin-left:4px; 
+}
+.video-facade:hover .video-play-btn{
+  transform:translate(-50%, -50%) scale(1.1);
+  background:var(--accent-2);
+}
+.video-facade iframe {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.video-info{
+  padding:1.2rem 1.4rem;
+  display:flex;
+  align-items:center;
+  gap:.8rem;
+}
+.video-info .play-icon{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:var(--accent-soft); /* Changed to match theme */
+  color:var(--accent);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+.video-info h4{font-size:.95rem;margin-bottom:.2rem;}
+.video-info p{font-size:.75rem;color:var(--muted);}
+
+/* Instagram Reels Custom Cards */
+.reel-card{
+  position:relative;
+  border-radius:18px;
+  overflow:hidden;
+  aspect-ratio:9/16;
+  background:var(--bg-2);
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  transition:.4s;
+  box-shadow:0 15px 30px rgba(0,0,0,.3);
+}
+.reel-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(240,148,51,.15), rgba(220,39,67,.15), rgba(188,24,136,.15));
+  z-index: 0;
+}
+.reel-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+  z-index: 0;
+}
+.reel-card:hover{
+  transform:translateY(-6px) scale(1.02);
+  border-color: rgba(214,185,140,.35);
+  box-shadow:0 25px 50px rgba(0,0,0,.4);
+}
+.reel-content{
+  position:relative;
+  z-index:2;
+  text-align:center;
+  padding:1.5rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1rem;
+  height:100%;
+  justify-content:space-between;
+}
+.reel-top{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.reel-ig-logo{
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  background:linear-gradient(135deg, #f09433, #dc2743, #bc1888);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+}
+.reel-ig-logo i{width:16px;height:16px;}
+.reel-tag{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.65rem;
+  color:rgba(255,255,255,.7);
+  background:rgba(0,0,0,.4);
+  padding:.25rem .6rem;
+  border-radius:999px;
+  backdrop-filter:blur(4px);
+}
+.reel-play{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:rgba(255,255,255,.15);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,.3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:.3s;
+}
+.reel-play i{
+  width:28px;
+  height:28px;
+  color:#fff;
+  fill:#fff;
+  margin-left:4px;
+}
+.reel-card:hover .reel-play{
+  transform:scale(1.1);
+  background:rgba(255,255,255,.25);
+}
+.reel-bottom{
+  text-align:left;
+  width:100%;
+}
+.reel-bottom h4{
+  color:#fff;
+  font-size:1rem;
+  margin-bottom:.3rem;
+}
+.reel-bottom p{
+  color:rgba(255,255,255,.7);
+  font-size:.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.reel-bottom p i { width: 12px; height: 12px; }
+
+/* ===============================
    CAROUSEL
 ================================*/
 .carousel{
@@ -820,6 +1033,7 @@ footer .footer-brand{
   <a href="#education" class="nav-link">Education</a>
   <a href="#skills" class="nav-link">Skills</a>
   <a href="#projects" class="nav-link">Projects</a>
+  <a href="#youtube" class="nav-link">Watch</a>
   <a href="#moments" class="nav-link">Moments</a>
   <a href="#contact" class="nav-link nav-cta">Let's talk</a>
 </nav>
@@ -1202,10 +1416,122 @@ footer .footer-brand{
   </div>
 </section>
 
+<!-- ============ YOUTUBE HIGHLIGHTS ============ -->
+<section id="youtube">
+  <div class="reveal">
+    <span class="section-eyebrow">05 — Video</span>
+    <h2 class="section-title">YouTube Highlights</h2>
+    <p class="section-subtitle">Devlogs, gameplay teasers, and behind-the-scenes development journeys. Click to play directly on the page.</p>
+  </div>
+
+  <div class="media-grid">
+    <div class="video-card reveal">
+      <div class="video-facade" data-id="hzE_54Z3-9E">
+        <img src="https://img.youtube.com/vi/hzE_54Z3-9E/hqdefault.jpg" alt="Video Thumbnail">
+        <div class="video-play-btn"><i data-lucide="play"></i></div>
+      </div>
+      <div class="video-info">
+        <div class="play-icon"><i data-lucide="play"></i></div>
+        <div>
+          <h4>Gameplay Teaser</h4>
+          <p>First look at the mechanics</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="video-card reveal">
+      <div class="video-facade" data-id="1yprexWsCuA">
+        <img src="https://img.youtube.com/vi/1yprexWsCuA/hqdefault.jpg" alt="Video Thumbnail">
+        <div class="video-play-btn"><i data-lucide="play"></i></div>
+      </div>
+      <div class="video-info">
+        <div class="play-icon"><i data-lucide="play"></i></div>
+        <div>
+          <h4>Devlog & Mechanics</h4>
+          <p>Building the core systems</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="video-card reveal">
+      <div class="video-facade" data-id="B8gqgyHYc1A">
+        <img src="https://youtu.be/B8gqgyHYc1A?si=YoxdMhgyCUrqEVmE" alt="Video Thumbnail">
+        <div class="video-play-btn"><i data-lucide="play"></i></div>
+      </div>
+      <div class="video-info">
+        <div class="play-icon"><i data-lucide="play"></i></div>
+        <div>
+          <h4>Project Showcase</h4>
+          <p>Final features & highlights</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSTAGRAM REELS ============ -->
+<section id="reels">
+  <div class="reveal">
+    <span class="section-eyebrow">06 — Social</span>
+    <h2 class="section-title">Instagram Reels</h2>
+    <p class="section-subtitle">Quick updates, visual snippets, and moments captured in vertical. Click a reel to watch it on Instagram.</p>
+  </div>
+
+  <div class="media-grid">
+    <a href="https://www.instagram.com/reel/DZzSrfLon0t/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener" class="reel-card reveal">
+      <div class="reel-content">
+        <div class="reel-top">
+          <div class="reel-ig-logo"><i data-lucide="instagram"></i></div>
+          <span class="reel-tag">Reel 01</span>
+        </div>
+        <div class="reel-play">
+          <i data-lucide="play"></i>
+        </div>
+        <div class="reel-bottom">
+          <h4>Snippet & Teaser</h4>
+          <p>Tap to watch <i data-lucide="arrow-up-right"></i></p>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://www.instagram.com/reel/DZH-ii6oM40/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener" class="reel-card reveal">
+      <div class="reel-content">
+        <div class="reel-top">
+          <div class="reel-ig-logo"><i data-lucide="instagram"></i></div>
+          <span class="reel-tag">Reel 02</span>
+        </div>
+        <div class="reel-play">
+          <i data-lucide="play"></i>
+        </div>
+        <div class="reel-bottom">
+          <h4>Behind the Scenes</h4>
+          <p>Tap to watch <i data-lucide="arrow-up-right"></i></p>
+        </div>
+      </div>
+    </a>
+
+    <a href="https://www.instagram.com/reel/DYwTYQcInwo/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener" class="reel-card reveal">
+      <div class="reel-content">
+        <div class="reel-top">
+          <div class="reel-ig-logo"><i data-lucide="instagram"></i></div>
+          <span class="reel-tag">Reel 03</span>
+        </div>
+        <div class="reel-play">
+          <i data-lucide="play"></i>
+        </div>
+        <div class="reel-bottom">
+          <h4>Quick Update</h4>
+          <p>Tap to watch <i data-lucide="arrow-up-right"></i></p>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
 <!-- ============ MOMENTS ============ -->
 <section id="moments">
   <div class="reveal">
-    <span class="section-eyebrow">05 — Behind the scenes</span>
+    <span class="section-eyebrow">07 — Behind the scenes</span>
     <h2 class="section-title">Moments</h2>
     <p class="section-subtitle">Campus life, late-night build sessions, and the places where the work happens.</p>
   </div>
@@ -1231,7 +1557,7 @@ footer .footer-brand{
 <!-- ============ CONTACT ============ -->
 <section id="contact" class="contact">
   <div class="contact-card reveal">
-    <span class="section-eyebrow" style="justify-content:center;">06 — Get in touch</span>
+    <span class="section-eyebrow" style="justify-content:center;">08 — Get in touch</span>
     <h2>Let's build something.</h2>
     <p>Got an idea, a collaboration, or just want to talk games and AI? My inbox is always open.</p>
 
@@ -1293,6 +1619,28 @@ footer .footer-brand{
   }, { threshold: 0.4 });
 
   sections.forEach(s => navObserver.observe(s));
+
+  // YouTube Video Facade (Click to load iframe and play inside the page)
+  document.querySelectorAll('.video-facade').forEach(facade => {
+    facade.addEventListener('click', function() {
+      const videoId = this.dataset.id;
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      iframe.allowFullscreen = true;
+      iframe.style.position = 'absolute';
+      iframe.style.top = '0';
+      iframe.style.left = '0';
+      iframe.style.width = '100%';
+      iframe.style.height = '100%';
+      iframe.style.border = '0';
+      
+      // Replace facade contents with the iframe
+      this.innerHTML = '';
+      this.appendChild(iframe);
+      this.style.cursor = 'default';
+    });
+  });
 </script>
 
 </body>
