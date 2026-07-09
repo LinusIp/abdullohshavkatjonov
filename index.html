@@ -659,66 +659,80 @@ header{
   border-radius:18px;
   overflow:hidden;
   transition:.35s;
+  display: flex;
+  flex-direction: column;
 }
 .video-card:hover{
   border-color:var(--border-hover);
   transform:translateY(-4px);
   box-shadow:0 20px 40px rgba(0,0,0,.4);
 }
-.video-facade{
+.video-wrapper{
   position:relative;
   width:100%;
-  padding-top:56.25%; /* 16:9 Aspect Ratio */
+  padding-bottom:56.25%; /* 16:9 Aspect Ratio */
   background:#000;
-  cursor:pointer;
   border-bottom:1px solid var(--border);
+  overflow:hidden;
+  cursor: pointer;
 }
-.video-facade img {
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  opacity:0.8;
-  transition:opacity 0.3s;
-}
-.video-facade:hover img { opacity:1; }
-
-.video-play-btn{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  width:68px;
-  height:48px;
-  background:var(--accent); /* Changed to Accent Gold */
-  border-radius:12px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:all 0.3s;
-  box-shadow:0 10px 30px rgba(0,0,0,0.5);
-  z-index:2;
-}
-.video-play-btn i {
-  width:28px;
-  height:28px;
-  color:#0a0b10; /* Dark icon on gold background */
-  fill:#0a0b10;
-  margin-left:4px; 
-}
-.video-facade:hover .video-play-btn{
-  transform:translate(-50%, -50%) scale(1.1);
-  background:var(--accent-2);
-}
-.video-facade iframe {
+.video-wrapper iframe {
   position:absolute;
   top:0;
   left:0;
   width:100%;
   height:100%;
   border:0;
+}
+
+/* Click-to-play facade */
+.yt-facade{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size:cover;
+  background-position:center;
+  background-color:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.yt-facade::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.25);
+  transition:background .3s ease;
+}
+.video-wrapper:hover .yt-facade::after{ 
+  background:rgba(0,0,0,.1); 
+}
+
+.yt-play-btn{
+  position:relative;
+  z-index:2;
+  width:68px;
+  height:68px;
+  border-radius:50%;
+  background:rgba(214,185,140,.95);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.5);
+  transition:transform .3s ease, background .3s ease;
+}
+.video-wrapper:hover .yt-play-btn{
+  transform:scale(1.1);
+  background:#e8d4b0;
+}
+.yt-play-btn::before{
+  content:"";
+  border-style:solid;
+  border-width:11px 0 11px 18px;
+  border-color:transparent transparent transparent #0a0b10;
+  margin-left:4px;
 }
 
 .video-info{
@@ -731,7 +745,7 @@ header{
   width:36px;
   height:36px;
   border-radius:50%;
-  background:var(--accent-soft); /* Changed to match theme */
+  background:var(--accent-soft);
   color:var(--accent);
   display:flex;
   align-items:center;
@@ -741,122 +755,29 @@ header{
 .video-info h4{font-size:.95rem;margin-bottom:.2rem;}
 .video-info p{font-size:.75rem;color:var(--muted);}
 
-/* Instagram Reels Custom Cards */
-.reel-card{
-  position:relative;
+/* Instagram Reels Native Iframes */
+.reel-wrapper{
+  background:var(--card);
+  border:1px solid var(--border);
   border-radius:18px;
   overflow:hidden;
-  aspect-ratio:9/16;
-  background:var(--bg-2);
-  border:1px solid var(--border);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-decoration:none;
-  transition:.4s;
-  box-shadow:0 15px 30px rgba(0,0,0,.3);
-}
-.reel-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(240,148,51,.15), rgba(220,39,67,.15), rgba(188,24,136,.15));
-  z-index: 0;
-}
-.reel-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-  background-size: 24px 24px;
-  mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
-  z-index: 0;
-}
-.reel-card:hover{
-  transform:translateY(-6px) scale(1.02);
-  border-color: rgba(214,185,140,.35);
-  box-shadow:0 25px 50px rgba(0,0,0,.4);
-}
-.reel-content{
-  position:relative;
-  z-index:2;
-  text-align:center;
-  padding:1.5rem;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:1rem;
-  height:100%;
-  justify-content:space-between;
-}
-.reel-top{
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-.reel-ig-logo{
-  width:32px;
-  height:32px;
-  border-radius:50%;
-  background:linear-gradient(135deg, #f09433, #dc2743, #bc1888);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#fff;
-}
-.reel-ig-logo i{width:16px;height:16px;}
-.reel-tag{
-  font-family:'JetBrains Mono',monospace;
-  font-size:.65rem;
-  color:rgba(255,255,255,.7);
-  background:rgba(0,0,0,.4);
-  padding:.25rem .6rem;
-  border-radius:999px;
-  backdrop-filter:blur(4px);
-}
-.reel-play{
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  background:rgba(255,255,255,.15);
-  backdrop-filter:blur(8px);
-  border:1px solid rgba(255,255,255,.3);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:.3s;
-}
-.reel-play i{
-  width:28px;
-  height:28px;
-  color:#fff;
-  fill:#fff;
-  margin-left:4px;
-}
-.reel-card:hover .reel-play{
-  transform:scale(1.1);
-  background:rgba(255,255,255,.25);
-}
-.reel-bottom{
-  text-align:left;
-  width:100%;
-}
-.reel-bottom h4{
-  color:#fff;
-  font-size:1rem;
-  margin-bottom:.3rem;
-}
-.reel-bottom p{
-  color:rgba(255,255,255,.7);
-  font-size:.8rem;
+  transition:.35s;
   display: flex;
-  align-items: center;
-  gap: 0.3rem;
+  justify-content: center;
+  min-height: 580px;
 }
-.reel-bottom p i { width: 12px; height: 12px; }
+.reel-wrapper:hover{
+  border-color:var(--border-hover);
+  transform:translateY(-4px);
+  box-shadow:0 20px 40px rgba(0,0,0,.4);
+}
+.reel-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 580px;
+  border: 0;
+  display: block;
+}
 
 /* ===============================
    CAROUSEL
@@ -1426,9 +1347,25 @@ footer .footer-brand{
 
   <div class="media-grid">
     <div class="video-card reveal">
-      <div class="video-facade" data-id="hzE_54Z3-9E">
-        <img src="https://img.youtube.com/vi/hzE_54Z3-9E/hqdefault.jpg" alt="Video Thumbnail">
-        <div class="video-play-btn"><i data-lucide="play"></i></div>
+      <div class="video-wrapper" data-id="B8gqgyHYc1A">
+        <div class="yt-facade" style="background-image:url('https://img.youtube.com/vi/B8gqgyHYc1A/hqdefault.jpg');">
+          <div class="yt-play-btn"></div>
+        </div>
+      </div>
+      <div class="video-info">
+        <div class="play-icon"><i data-lucide="play"></i></div>
+        <div>
+          <h4>Project Showcase</h4>
+          <p>Final features &amp; highlights</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="video-card reveal">
+      <div class="video-wrapper" data-id="hzE_54Z3-9E">
+        <div class="yt-facade" style="background-image:url('https://img.youtube.com/vi/hzE_54Z3-9E/hqdefault.jpg');">
+          <div class="yt-play-btn"></div>
+        </div>
       </div>
       <div class="video-info">
         <div class="play-icon"><i data-lucide="play"></i></div>
@@ -1440,29 +1377,16 @@ footer .footer-brand{
     </div>
 
     <div class="video-card reveal">
-      <div class="video-facade" data-id="1yprexWsCuA">
-        <img src="https://img.youtube.com/vi/1yprexWsCuA/hqdefault.jpg" alt="Video Thumbnail">
-        <div class="video-play-btn"><i data-lucide="play"></i></div>
-      </div>
-      <div class="video-info">
-        <div class="play-icon"><i data-lucide="play"></i></div>
-        <div>
-          <h4>Devlog & Mechanics</h4>
-          <p>Building the core systems</p>
+      <div class="video-wrapper" data-id="D9k4uQxghXw">
+        <div class="yt-facade" style="background-image:url('https://img.youtube.com/vi/D9k4uQxghXw/hqdefault.jpg');">
+          <div class="yt-play-btn"></div>
         </div>
       </div>
-    </div>
-
-    <div class="video-card reveal">
-      <div class="video-facade" data-id="B8gqgyHYc1A">
-        <img src="https://youtu.be/B8gqgyHYc1A?si=YoxdMhgyCUrqEVmE" alt="Video Thumbnail">
-        <div class="video-play-btn"><i data-lucide="play"></i></div>
-      </div>
       <div class="video-info">
         <div class="play-icon"><i data-lucide="play"></i></div>
         <div>
-          <h4>Project Showcase</h4>
-          <p>Final features & highlights</p>
+          <h4>Devlog &amp; Mechanics</h4>
+          <p>Building the core systems</p>
         </div>
       </div>
     </div>
@@ -1474,57 +1398,21 @@ footer .footer-brand{
   <div class="reveal">
     <span class="section-eyebrow">06 — Social</span>
     <h2 class="section-title">Instagram Reels</h2>
-    <p class="section-subtitle">Quick updates, visual snippets, and moments captured in vertical. Click a reel to watch it on Instagram.</p>
+    <p class="section-subtitle">Quick updates, visual snippets, and moments captured in vertical. The reels are embedded natively below.</p>
   </div>
 
   <div class="media-grid">
-    <a href="https://www.instagram.com/reel/DZzSrfLon0t/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener" class="reel-card reveal">
-      <div class="reel-content">
-        <div class="reel-top">
-          <div class="reel-ig-logo"><i data-lucide="instagram"></i></div>
-          <span class="reel-tag">Reel 01</span>
-        </div>
-        <div class="reel-play">
-          <i data-lucide="play"></i>
-        </div>
-        <div class="reel-bottom">
-          <h4>Snippet & Teaser</h4>
-          <p>Tap to watch <i data-lucide="arrow-up-right"></i></p>
-        </div>
-      </div>
-    </a>
+    <div class="reel-wrapper reveal">
+      <iframe src="https://www.instagram.com/reel/DZzSrfLon0t/embed" frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen="true"></iframe>
+    </div>
 
-    <a href="https://www.instagram.com/reel/DZH-ii6oM40/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener" class="reel-card reveal">
-      <div class="reel-content">
-        <div class="reel-top">
-          <div class="reel-ig-logo"><i data-lucide="instagram"></i></div>
-          <span class="reel-tag">Reel 02</span>
-        </div>
-        <div class="reel-play">
-          <i data-lucide="play"></i>
-        </div>
-        <div class="reel-bottom">
-          <h4>Behind the Scenes</h4>
-          <p>Tap to watch <i data-lucide="arrow-up-right"></i></p>
-        </div>
-      </div>
-    </a>
+    <div class="reel-wrapper reveal">
+      <iframe src="https://www.instagram.com/reel/DZH-ii6oM40/embed" frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen="true"></iframe>
+    </div>
 
-    <a href="https://www.instagram.com/reel/DYwTYQcInwo/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener" class="reel-card reveal">
-      <div class="reel-content">
-        <div class="reel-top">
-          <div class="reel-ig-logo"><i data-lucide="instagram"></i></div>
-          <span class="reel-tag">Reel 03</span>
-        </div>
-        <div class="reel-play">
-          <i data-lucide="play"></i>
-        </div>
-        <div class="reel-bottom">
-          <h4>Quick Update</h4>
-          <p>Tap to watch <i data-lucide="arrow-up-right"></i></p>
-        </div>
-      </div>
-    </a>
+    <div class="reel-wrapper reveal">
+      <iframe src="https://www.instagram.com/reel/DYwTYQcInwo/embed" frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen="true"></iframe>
+    </div>
   </div>
 </section>
 
@@ -1589,6 +1477,15 @@ footer .footer-brand{
     lucide.createIcons();
   }
 
+  // Bulletproof Lazy-load YouTube embeds
+  document.querySelectorAll('.video-wrapper').forEach(function(wrapper){
+    wrapper.addEventListener('click', function(){
+      var id = wrapper.getAttribute('data-id');
+      var iframe = '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+      wrapper.innerHTML = iframe;
+    });
+  });
+
   // Scroll reveal animations
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
@@ -1619,28 +1516,6 @@ footer .footer-brand{
   }, { threshold: 0.4 });
 
   sections.forEach(s => navObserver.observe(s));
-
-  // YouTube Video Facade (Click to load iframe and play inside the page)
-  document.querySelectorAll('.video-facade').forEach(facade => {
-    facade.addEventListener('click', function() {
-      const videoId = this.dataset.id;
-      const iframe = document.createElement('iframe');
-      iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
-      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-      iframe.allowFullscreen = true;
-      iframe.style.position = 'absolute';
-      iframe.style.top = '0';
-      iframe.style.left = '0';
-      iframe.style.width = '100%';
-      iframe.style.height = '100%';
-      iframe.style.border = '0';
-      
-      // Replace facade contents with the iframe
-      this.innerHTML = '';
-      this.appendChild(iframe);
-      this.style.cursor = 'default';
-    });
-  });
 </script>
 
 </body>
