@@ -1,5 +1,6 @@
 ---
-title: Testing first post
-date: 2026-08-05
+title: My post title
+date: 2024-10-29
+layout: post
 ---
 Test
