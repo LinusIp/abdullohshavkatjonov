@@ -175,6 +175,29 @@ header{min-height:100vh;display:grid;grid-template-columns:1.2fr .8fr;align-item
 .blog-card h3{font-size:1.2rem;font-weight:600;line-height:1.4;}
 .blog-card p{color:var(--muted);font-size:.9rem;flex-grow:1;}
 
+
+/* BLOG HORIZONTAL SCROLL */
+.blog-carousel{
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--bg-2);
+  padding-bottom: 1.5rem; /* space for scrollbar */
+}
+.blog-carousel::-webkit-scrollbar { height: 6px; }
+.blog-carousel::-webkit-scrollbar-track { background: var(--bg-2); border-radius: 10px; }
+.blog-carousel::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+.blog-carousel .blog-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+}
+.blog-carousel .blog-card {
+  width: 320px; /* Fixed width so they sit side-by-side */
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+
 /* CONTACT */
 .contact{text-align:center;padding:6rem 8vw;}
 .contact-card{max-width:680px;margin:0 auto;padding:3.5rem 2rem;background:var(--card);border:1px solid var(--border);border-radius:24px;backdrop-filter:blur(20px);position:relative;overflow:hidden;}
