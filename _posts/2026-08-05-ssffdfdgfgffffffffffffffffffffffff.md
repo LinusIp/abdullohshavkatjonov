@@ -1,8 +1,8 @@
 ---
-title: ssffdfdgfgffffffffffffffffffffffff
+title: GameDevHQ
 date: 2026-08-05
 ---
-fffffffffffffffffffffffffffffff
+Finally!
 
 ![](assets/Abdulloh_Shavkatjonov.webp)
 
