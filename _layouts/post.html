@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ page.title }}</title>
+<!-- Magic tag: automatically fixes all image and link paths -->
+<base href="{{ site.baseurl }}/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -22,6 +24,7 @@
   a { color:var(--accent); text-decoration:none; transition:.3s; }
   a:hover { color:var(--accent-2); }
   
+  /* The back link uses an absolute path so it works perfectly */
   .back-link { 
     display:inline-flex; align-items:center; gap:.5rem; font-size:.8rem; font-weight:500; 
     margin-bottom:2.5rem; padding:.5rem 1rem; border:1px solid var(--border); 
