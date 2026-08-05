@@ -1,4 +1,5 @@
-
+---
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Abdulloh Shavkatjonov — AI & Robotics · Game Developer</title>
 <meta name="description" content="Portfolio of Abdulloh — AI & Robotics student and game developer building interactive experiences in Unity and the browser.">
-<link rel="icon" type="image/png" sizes="any" href="mebrand.png">
-<link rel="apple-touch-icon" href="mebrand.png">
+<link rel="icon" type="image/png" sizes="any" href="{{ site.baseurl }}/mebrand.png">
+<link rel="apple-touch-icon" href="{{ site.baseurl }}/mebrand.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -175,7 +176,6 @@ header{min-height:100vh;display:grid;grid-template-columns:1.2fr .8fr;align-item
 .blog-card h3{font-size:1.2rem;font-weight:600;line-height:1.4;}
 .blog-card p{color:var(--muted);font-size:.9rem;flex-grow:1;}
 
-
 /* BLOG HORIZONTAL SCROLL */
 .blog-carousel{
   overflow-x: auto;
@@ -270,7 +270,7 @@ footer .footer-brand{font-family:'Playfair Display',serif;color:var(--accent);fo
     </div>
   </div>
   <div class="hero-image">
-    <img src="me.jpg" alt="Portrait of Abdulloh"/>
+    <img src="{{ site.baseurl }}/me.jpg" alt="Portrait of Abdulloh"/>
     <div class="hero-badge hero-badge-1"><i data-lucide="gamepad-2"></i> Unity Developer</div>
     <div class="hero-badge hero-badge-2"><i data-lucide="cpu"></i> AI &amp; Robotics</div>
   </div>
@@ -361,21 +361,21 @@ footer .footer-brand{font-family:'Playfair Display',serif;color:var(--accent);fo
   <div class="reveal"><span class="section-eyebrow">07 — Behind the scenes</span><h2 class="section-title">Moments</h2><p class="section-subtitle">Campus life, late-night build sessions, and the places where the work happens.</p></div>
   <div class="carousel reveal">
     <div class="track">
-      <div class="moment"><img src="me.jpg" alt="Portrait"/><span class="moment-label">/ me</span></div>
-      <div class="moment"><img src="newcampus.jpg" alt="New campus"/><span class="moment-label">/ campus</span></div>
-      <div class="moment"><img src="gamedev.webp" alt="Game dev"/><span class="moment-label">/ dev sessions</span></div>
-      <div class="moment"><img src="newuu.webp" alt="NewUU"/><span class="moment-label">/ newuu</span></div>
-      <div class="moment"><img src="download-_2_.jpg" alt="Behind the scenes"/><span class="moment-label">/ bts</span></div>
-      <div class="moment"><img src="me.jpg" alt="Portrait"/><span class="moment-label">/ me</span></div>
-      <div class="moment"><img src="newcampus.jpg" alt="New campus"/><span class="moment-label">/ campus</span></div>
-      <div class="moment"><img src="gamedev.webp" alt="Game dev"/><span class="moment-label">/ dev sessions</span></div>
-      <div class="moment"><img src="newuu.webp" alt="NewUU"/><span class="moment-label">/ newuu</span></div>
-      <div class="moment"><img src="download-_2_.jpg" alt="Behind the scenes"/><span class="moment-label">/ bts</span></div>
+      <div class="moment"><img src="{{ site.baseurl }}/me.jpg" alt="Portrait"/><span class="moment-label">/ me</span></div>
+      <div class="moment"><img src="{{ site.baseurl }}/newcampus.jpg" alt="New campus"/><span class="moment-label">/ campus</span></div>
+      <div class="moment"><img src="{{ site.baseurl }}/gamedev.webp" alt="Game dev"/><span class="moment-label">/ dev sessions</span></div>
+      <div class="moment"><img src="{{ site.baseurl }}/newuu.webp" alt="NewUU"/><span class="moment-label">/ newuu</span></div>
+      <div class="moment"><img src="{{ site.baseurl }}/download-_2_.jpg" alt="Behind the scenes"/><span class="moment-label">/ bts</span></div>
+      <div class="moment"><img src="{{ site.baseurl }}/me.jpg" alt="Portrait"/><span class="moment-label">/ me</span></div>
+      <div class="moment"><img src="{{ site.baseurl }}/newcampus.jpg" alt="New campus"/><span class="moment-label">/ campus</span></div>
+      <div class="moment"><img src="{{ site.baseurl }}/gamedev.webp" alt="Game dev"/><span class="moment-label">/ dev sessions</span></div>
+      <div class="moment"><img src="{{ site.baseurl }}/newuu.webp" alt="NewUU"/><span class="moment-label">/ newuu</span></div>
+      <div class="moment"><img src="{{ site.baseurl }}/download-_2_.jpg" alt="Behind the scenes"/><span class="moment-label">/ bts</span></div>
     </div>
   </div>
 </section>
 
-<!-- ============ DAILY BLOG ============ -->
+<!-- ============ DAILY BLOG (DYNAMIC) ============ -->
 <section id="blog">
   <div class="reveal">
     <span class="section-eyebrow">08 — Thoughts</span>
@@ -387,28 +387,15 @@ footer .footer-brand{font-family:'Playfair Display',serif;color:var(--accent);fo
   <div class="blog-carousel reveal">
     <div class="blog-track">
       
-      <!-- POST 1 (Example) -->
-      <a href="posts/day1.html" class="blog-card">
-        <div class="blog-date">Day 1 · Oct 28, 2024</div>
-        <h3>Raycasting & Unity Physics</h3>
-        <p>Today I worked on my Unity project and learned about raycasting. It's amazing how physics engines handle light and collisions...</p>
-      </a>
-      
-      <!-- POST 2 (Example) -->
-      <a href="posts/day2.html" class="blog-card">
-        <div class="blog-date">Day 2 · Oct 29, 2024</div>
-        <h3>Robotics Kinematics in Code</h3>
-        <p>Had a great lecture on kinematics today. I'm going to try simulating a robotic arm in Unity this weekend. Check out the code snippet...</p>
-      </a>
-
-      <!-- COPY THIS BLOCK TO ADD A NEW POST -->
-      <!--
-      <a href="posts/dayX.html" class="blog-card">
-        <div class="blog-date">Day X · Date</div>
-        <h3>Title of your post</h3>
-        <p>Short summary of your post...</p>
-      </a>
-      -->
+      {% for post in site.posts limit: 10 %}
+        <a href="{{ site.baseurl }}{{ post.url }}" class="blog-card">
+          <div class="blog-date">{{ post.date | date: "%b %d, %Y" }}</div>
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+        </a>
+      {% else %}
+        <p class="reveal" style="color: var(--muted); padding: 2rem;">No blog posts yet. Write your first one in Pages CMS!</p>
+      {% endfor %}
 
     </div>
   </div>
@@ -454,7 +441,7 @@ footer .footer-brand{font-family:'Playfair Display',serif;color:var(--accent);fo
   }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
   reveals.forEach(el => observer.observe(el));
 
-  const sections = document.querySelectorAll('section[id], header');
+  const sections = document.querySelectorAll('section[ID], header');
   const navLinks = document.querySelectorAll('nav a.nav-link');
   const navObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
