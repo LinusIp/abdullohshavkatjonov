@@ -352,7 +352,7 @@ footer .footer-brand{font-family:'Playfair Display',serif;color:var(--accent);fo
   </div>
 </section>
 
-<!-- ============ DAILY BLOG (DYNAMIC) ============ -->
+<!-- ============ DAILY BLOG ============ -->
 <section id="blog">
   <div class="reveal">
     <span class="section-eyebrow">08 — Thoughts</span>
@@ -360,15 +360,21 @@ footer .footer-brand{font-family:'Playfair Display',serif;color:var(--accent);fo
     <p class="section-subtitle">My daily journey in AI, game development, and life. Small updates, thoughts, and progress reports.</p>
   </div>
   <div class="blog-grid">
-    {% for post in site.posts limit: 3 %}
-      <a href="{{ site.baseurl }}{{ post.url }}" class="blog-card reveal">
-        <div class="blog-date">{{ post.date | date: "%B %d, %Y" }}</div>
-        <h3>{{ post.title }}</h3>
-        <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
-      </a>
-    {% else %}
-      <p class="reveal">No blog posts yet. Check back soon!</p>
-    {% endfor %}
+    
+    <!-- POST 1 -->
+    <a href="post-1.html" class="blog-card reveal">
+      <div class="blog-date">October 28, 2024</div>
+      <h3>My first daily update</h3>
+      <p>Today I worked on my Unity project and learned about raycasting. It's amazing how physics engines handle light and collisions...</p>
+    </a>
+    
+    <!-- POST 2 (Example - you can copy this block to add more) -->
+    <a href="post-2.html" class="blog-card reveal">
+      <div class="blog-date">October 29, 2024</div>
+      <h3>Robotics class notes</h3>
+      <p>Had a great lecture on kinematics today. I'm going to try simulating a robotic arm in Unity this weekend...</p>
+    </a>
+
   </div>
 </section>
 
