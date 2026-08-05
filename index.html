@@ -357,24 +357,37 @@ footer .footer-brand{font-family:'Playfair Display',serif;color:var(--accent);fo
   <div class="reveal">
     <span class="section-eyebrow">08 — Thoughts</span>
     <h2 class="section-title">Daily Blog</h2>
-    <p class="section-subtitle">My daily journey in AI, game development, and life. Small updates, thoughts, and progress reports.</p>
+    <p class="section-subtitle">My daily journey in AI, game development, and life. Scroll sideways to see more daily updates.</p>
   </div>
-  <div class="blog-grid">
-    
-    <!-- POST 1 -->
-    <a href="post-1.html" class="blog-card reveal">
-      <div class="blog-date">October 28, 2024</div>
-      <h3>My first daily update</h3>
-      <p>Today I worked on my Unity project and learned about raycasting. It's amazing how physics engines handle light and collisions...</p>
-    </a>
-    
-    <!-- POST 2 (Example - you can copy this block to add more) -->
-    <a href="post-2.html" class="blog-card reveal">
-      <div class="blog-date">October 29, 2024</div>
-      <h3>Robotics class notes</h3>
-      <p>Had a great lecture on kinematics today. I'm going to try simulating a robotic arm in Unity this weekend...</p>
-    </a>
+  
+  <!-- Horizontal Scroll Container -->
+  <div class="blog-carousel reveal">
+    <div class="blog-track">
+      
+      <!-- POST 1 (Example) -->
+      <a href="posts/day1.html" class="blog-card">
+        <div class="blog-date">Day 1 · Oct 28, 2024</div>
+        <h3>Raycasting & Unity Physics</h3>
+        <p>Today I worked on my Unity project and learned about raycasting. It's amazing how physics engines handle light and collisions...</p>
+      </a>
+      
+      <!-- POST 2 (Example) -->
+      <a href="posts/day2.html" class="blog-card">
+        <div class="blog-date">Day 2 · Oct 29, 2024</div>
+        <h3>Robotics Kinematics in Code</h3>
+        <p>Had a great lecture on kinematics today. I'm going to try simulating a robotic arm in Unity this weekend. Check out the code snippet...</p>
+      </a>
 
+      <!-- COPY THIS BLOCK TO ADD A NEW POST -->
+      <!--
+      <a href="posts/dayX.html" class="blog-card">
+        <div class="blog-date">Day X · Date</div>
+        <h3>Title of your post</h3>
+        <p>Short summary of your post...</p>
+      </a>
+      -->
+
+    </div>
   </div>
 </section>
 
