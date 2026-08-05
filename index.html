@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -166,9 +167,9 @@ header{min-height:100vh;display:grid;grid-template-columns:1.2fr .8fr;align-item
 .moment-label{position:absolute;bottom:12px;left:12px;font-size:.7rem;font-family:'JetBrains Mono',monospace;color:#fff;background:rgba(10,11,16,.75);backdrop-filter:blur(10px);padding:.3rem .7rem;border-radius:8px;border:1px solid var(--border);letter-spacing:.05em;}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* BLOG SECTION (NEW) */
+/* BLOG SECTION */
 .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;}
-.blog-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:1.8rem;transition:.3s;display:flex;flex-direction:column;gap:.8rem;}
+.blog-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:1.8rem;transition:.3s;display:flex;flex-direction:column;gap:.8rem;text-decoration:none;color:inherit;}
 .blog-card:hover{border-color:var(--border-hover);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.4);}
 .blog-date{font-size:.7rem;color:var(--accent);font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.12em;}
 .blog-card h3{font-size:1.2rem;font-weight:600;line-height:1.4;}
@@ -226,7 +227,7 @@ footer .footer-brand{font-family:'Playfair Display',serif;color:var(--accent);fo
   <a href="#projects" class="nav-link">Projects</a>
   <a href="#youtube" class="nav-link">Watch</a>
   <a href="#moments" class="nav-link">Moments</a>
-  <a href="#blog" class="nav-link">Blog</a> <!-- NEW LINK -->
+  <a href="#blog" class="nav-link">Blog</a>
   <a href="#contact" class="nav-link nav-cta">Let's talk</a>
 </nav>
 
@@ -351,7 +352,7 @@ footer .footer-brand{font-family:'Playfair Display',serif;color:var(--accent);fo
   </div>
 </section>
 
-<!-- ============ DAILY BLOG (NEW SECTION) ============ -->
+<!-- ============ DAILY BLOG (DYNAMIC) ============ -->
 <section id="blog">
   <div class="reveal">
     <span class="section-eyebrow">08 — Thoughts</span>
@@ -359,21 +360,15 @@ footer .footer-brand{font-family:'Playfair Display',serif;color:var(--accent);fo
     <p class="section-subtitle">My daily journey in AI, game development, and life. Small updates, thoughts, and progress reports.</p>
   </div>
   <div class="blog-grid">
-    <article class="blog-card reveal">
-      <div class="blog-date">October 27, 2024</div>
-      <h3>Setting up my portfolio blog</h3>
-      <p>Today I integrated a daily blog section into my portfolio. It feels great to have a central place for my projects and thoughts. Next step: testing the AI behaviors for the Shooter project.</p>
-    </article>
-    <article class="blog-card reveal">
-      <div class="blog-date">October 26, 2024</div>
-      <h3>Robotics class & Unity physics</h3>
-      <p>Had an interesting lecture on kinematics today. I realized how similar the math is to the physics engine I use in Unity. I'm going to try simulating a robotic arm in Unity this weekend.</p>
-    </article>
-    <article class="blog-card reveal">
-      <div class="blog-date">October 25, 2024</div>
-      <h3>SAT prep is finally over</h3>
-      <p>Took my SATs today. Scoring 1300 isn't bad, but I'm glad I can fully focus on coding again. Working on updating the Input System demo to support gamepads properly.</p>
-    </article>
+    {% for post in site.posts limit: 3 %}
+      <a href="{{ post.url }}" class="blog-card reveal">
+        <div class="blog-date">{{ post.date | date: "%B %d, %Y" }}</div>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+      </a>
+    {% else %}
+      <p class="reveal">No blog posts yet. Check back soon!</p>
+    {% endfor %}
   </div>
 </section>
 
