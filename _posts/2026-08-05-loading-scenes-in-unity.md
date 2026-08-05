@@ -40,7 +40,6 @@ And then I created a new button and then I added a new **OnClick()** action in i
 
 Press enter or click to view image in full size
 
-  
 So this is all as you can is even if it seems hard at the beginning it may be super easy.
 
 *And a*s always thanks for your attention, and don’t forget to follow me in other socail media platofrms!)
