@@ -1,16 +1,12 @@
 media:
   input: assets
   output: assets
+
 content:
   - name: posts
     label: Daily Blog Posts
     path: _posts
     type: collection
-    view:
-      fields: title, date
-      primary: title
-      sort: date
-      default: descending
     fields:
       - name: title
         label: Title
