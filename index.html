@@ -361,7 +361,7 @@ footer .footer-brand{font-family:'Playfair Display',serif;color:var(--accent);fo
   </div>
   <div class="blog-grid">
     {% for post in site.posts limit: 3 %}
-      <a href="{{ post.url }}" class="blog-card reveal">
+      <a href="{{ site.baseurl }}{{ post.url }}" class="blog-card reveal">
         <div class="blog-date">{{ post.date | date: "%B %d, %Y" }}</div>
         <h3>{{ post.title }}</h3>
         <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
