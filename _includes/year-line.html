@@ -1,0 +1,69 @@
+{%- comment -%}
+  The year line: one tick per day of the build year, coloured by season.
+  Usage: {% include year-line.html interactive=true %} on the home page
+         {% include year-line.html %} in the footer (compact, decorative)
+  This static version is what visitors see without JavaScript. With
+  JavaScript, main.js re-renders it for the visitor's current year and makes
+  the interactive one explorable (tooltips, keys, year switching).
+  Tick classes: p = post, g = gallery photo, f = future, t = today.
+{%- endcomment -%}
+{%- assign _yl_year = site.time | date: "%Y" | plus: 0 -%}
+{%- assign _yl_today = site.time | date: "%Y-%m-%d" -%}
+{%- assign _yl_feb = 28 -%}
+{%- assign _yl_m4 = _yl_year | modulo: 4 -%}{%- assign _yl_m100 = _yl_year | modulo: 100 -%}{%- assign _yl_m400 = _yl_year | modulo: 400 -%}
+{%- if _yl_m4 == 0 and _yl_m100 != 0 -%}{%- assign _yl_feb = 29 -%}{%- elsif _yl_m400 == 0 -%}{%- assign _yl_feb = 29 -%}{%- endif -%}
+{%- assign _yl_days = _yl_feb | plus: 337 -%}
+{%- assign _yl_nwa = _yl_feb | plus: 31 -%}
+{%- capture _yl_jan1 %}{{ _yl_year }}-01-01 12:00:00 +0000{% endcapture -%}
+{%- assign _yl_t0 = _yl_jan1 | date: "%s" | plus: 0 -%}
+{%- capture _yl_posts %}|{% for p in site.posts %}{{ p.date | date: "%Y-%m-%d" }}|{% endfor %}{% endcapture -%}
+{%- capture _yl_photos %}|{% for g in site.gallery %}{{ g.date | date: "%Y-%m-%d" }}|{% endfor %}{% endcapture -%}
+{%- if include.interactive -%}
+<nav class="yl" aria-label="Year in posts and photos" data-yl-interactive>
+{%- else -%}
+<div class="yl yl--compact" aria-hidden="true" data-yl-year="{{ _yl_year }}">
+{%- endif %}
+  <div class="yl-head"><span class="yl-year meta">{{ _yl_year }}</span></div>
+  <div class="yl-track" style="--days:{{ _yl_days }}">
+{%- assign _yl_seg = "" -%}
+{%- assign _yl_last = _yl_days | minus: 1 -%}
+{%- for i in (0.._yl_last) -%}
+  {%- assign _yl_ts = i | times: 86400 | plus: _yl_t0 -%}
+  {%- assign _yl_day = _yl_ts | date: "%Y-%m-%d" -%}
+  {%- assign _yl_m = _yl_ts | date: "%-m" | plus: 0 -%}
+  {%- if _yl_m <= 2 -%}{%- assign _yl_s = "wa" -%}{%- assign _yl_n = _yl_nwa -%}
+  {%- elsif _yl_m <= 5 -%}{%- assign _yl_s = "sp" -%}{%- assign _yl_n = 92 -%}
+  {%- elsif _yl_m <= 8 -%}{%- assign _yl_s = "su" -%}{%- assign _yl_n = 92 -%}
+  {%- elsif _yl_m <= 11 -%}{%- assign _yl_s = "au" -%}{%- assign _yl_n = 91 -%}
+  {%- else -%}{%- assign _yl_s = "wb" -%}{%- assign _yl_n = 31 -%}{%- endif -%}
+  {%- if _yl_s != _yl_seg -%}
+    {%- unless _yl_seg == "" %}</div>{% endunless %}
+    <div class="yl-seg yl-{{ _yl_s }}" style="--n:{{ _yl_n }}{% if _yl_s == 'wb' %};--col:{{ _yl_nwa | plus: 2 }}{% endif %}">
+    {%- assign _yl_seg = _yl_s -%}
+  {%- endif -%}
+  {%- capture _yl_key %}|{{ _yl_day }}|{% endcapture -%}
+  {%- assign _yl_c = "" -%}
+  {%- if _yl_posts contains _yl_key -%}{%- assign _yl_c = _yl_c | append: " p" -%}{%- endif -%}
+  {%- if _yl_photos contains _yl_key -%}{%- assign _yl_c = _yl_c | append: " g" -%}{%- endif -%}
+  {%- if _yl_day > _yl_today -%}{%- assign _yl_c = _yl_c | append: " f" -%}{%- elsif _yl_day == _yl_today -%}{%- assign _yl_c = _yl_c | append: " t" -%}{%- endif -%}
+  {%- if _yl_c == "" -%}<i></i>{%- else -%}<i class="{{ _yl_c | strip }}"></i>{%- endif -%}
+{%- endfor %}</div>
+  </div>
+{%- if include.interactive %}
+  <div class="yl-tip" hidden></div>
+  <script type="application/json" class="yl-data">[
+  {%- assign _yl_sep = "" -%}
+  {%- for p in site.posts -%}
+    {{ _yl_sep }}{"d":{{ p.date | date: "%Y-%m-%d" | jsonify }},"t":"p","n":{{ p.title | jsonify }},"u":{{ p.url | relative_url | jsonify }}}
+    {%- assign _yl_sep = "," -%}
+  {%- endfor -%}
+  {%- for g in site.gallery -%}
+    {%- if g.image contains "://" -%}{%- assign _yl_src = g.image -%}{%- else -%}{%- assign _yl_src = g.image | relative_url -%}{%- endif -%}
+    {{ _yl_sep }}{"d":{{ g.date | date: "%Y-%m-%d" | jsonify }},"t":"g","n":{{ g.caption | default: "" | jsonify }},"u":{{ _yl_src | jsonify }},"l":{{ g.location | default: "" | jsonify }}}
+    {%- assign _yl_sep = "," -%}
+  {%- endfor -%}
+  ]</script>
+</nav>
+{%- else %}
+</div>
+{%- endif -%}

@@ -14,6 +14,7 @@
       {%- endfor %}
       <li><a href="{{ '/feed.xml' | relative_url }}">{% include icon.html name="rss" %}<span>RSS</span></a></li>
     </ul>
+    <div class="site-footer__year">{% include year-line.html %}</div>
     <p class="site-footer__legal meta">&copy; {{ site.time | date: "%Y" }} {{ bio.name | default: site.title }}</p>
   </div>
 </footer>

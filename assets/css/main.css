@@ -78,6 +78,16 @@
   --overlay:      #1D120B;
 }
 
+/* Year line: the only place all four palettes appear at once, so these do not
+   change with data-season. Strong = each season's link tone (>= 3:1 on every
+   season's page background); faint = each season's 300 tone (decorative). */
+:root {
+  --yl-winter: #2F5B84;  --yl-winter-faint: #91AFCB;
+  --yl-spring: #3C6B33;  --yl-spring-faint: #9FC093;
+  --yl-summer: #80590F;  --yl-summer-faint: #E0BC6A;
+  --yl-autumn: #94502A;  --yl-autumn-faint: #D4A07A;
+}
+
 :root {
   /* Season-neutral roles used by components */
   --bg:      var(--tone-50);
@@ -85,7 +95,6 @@
   --rule:    var(--tone-200);
   --accent:  var(--tone-400);
   --focus:   var(--link);
-  --mark:    var(--link); /* nav logo fill */
   --shadow:  color-mix(in srgb, var(--overlay) 35%, transparent);
 
   --font-serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
@@ -226,19 +235,18 @@ a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
   white-space: nowrap;
 }
 .site-name:hover { color: var(--link); }
-/* One PNG for every season: its alpha is the mask, the fill is a seasonal token. */
+/* The season's own recoloured mark. Only the matching rule applies, so a
+   visitor downloads one file; the head script also preloads that one. */
 .site-name__mark {
   display: block;
   width: 2rem;
   height: 2rem;
   flex: none;
-  background-color: var(--mark);
-  -webkit-mask: url("../brand/logo-mark-96.png") center / contain no-repeat;
-  mask: url("../brand/logo-mark-96.png") center / contain no-repeat;
+  background: url("../brand/logo-winter-mark-96.png") center / contain no-repeat;
 }
-@supports not ((mask-image: none) or (-webkit-mask-image: none)) {
-  .site-name__mark { background: url("../brand/logo-mark-96.png") center / contain no-repeat; }
-}
+:root[data-season="spring"] .site-name__mark { background-image: url("../brand/logo-spring-mark-96.png"); }
+:root[data-season="summer"] .site-name__mark { background-image: url("../brand/logo-summer-mark-96.png"); }
+:root[data-season="autumn"] .site-name__mark { background-image: url("../brand/logo-autumn-mark-96.png"); }
 
 .site-nav { position: relative; }
 
@@ -652,6 +660,149 @@ a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
 .lightbox__btn:focus-visible { outline-color: var(--tone-50); }
 .lightbox__btn .icon { width: 1.2rem; height: 1.2rem; }
 .lightbox__close { position: absolute; top: .75rem; right: .75rem; }
+
+/* ---------- Year line ---------- */
+
+/* The wrappers are the size containers, so .yl itself can switch layout. */
+.year-line { padding-top: clamp(2.5rem, 6vw, 4rem); container-type: inline-size; }
+.site-footer__year { container-type: inline-size; }
+
+.yl {
+  --h-empty: 6px;
+  --h-one: 14px;
+  --h-both: 22px;
+  --row: 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.yl-head { display: flex; align-items: center; gap: .25rem; min-height: 1.75rem; }
+.yl-year { color: var(--ink); min-width: 2.5rem; }
+.yl-btn {
+  display: inline-grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  color: var(--ink);
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.yl-btn:hover { border-color: var(--rule); background: var(--surface); }
+.yl-btn:disabled { color: var(--rule); cursor: default; background: none; border-color: transparent; }
+.yl-btn .icon { width: .95rem; height: .95rem; }
+
+/* One row: 365/366 equal slots. Each season is a grid spanning its days. */
+.yl-track {
+  display: grid;
+  grid-template-columns: repeat(var(--days), minmax(0, 1fr));
+  grid-auto-rows: var(--row);
+  row-gap: .6rem;
+  padding-bottom: 6px; /* room for the today marker */
+}
+.yl-seg {
+  grid-column: span var(--n);
+  display: grid;
+  grid-template-columns: repeat(var(--n), minmax(0, 1fr));
+  align-items: stretch;
+  min-width: 0;
+}
+.yl-wa, .yl-wb { --strong: var(--yl-winter); --faint: var(--yl-winter-faint); }
+.yl-sp { --strong: var(--yl-spring); --faint: var(--yl-spring-faint); }
+.yl-su { --strong: var(--yl-summer); --faint: var(--yl-summer-faint); }
+.yl-au { --strong: var(--yl-autumn); --faint: var(--yl-autumn-faint); }
+
+/* Narrow: four rows, one per season (December joins January and February). */
+@container (max-width: 47.99rem) {
+  .yl-track { grid-template-columns: repeat(92, minmax(0, 1fr)); }
+  .yl-wa { grid-row: 1; grid-column: 1 / span var(--n); }
+  .yl-wb { grid-row: 1; grid-column: var(--col) / span var(--n); }
+  .yl-sp { grid-row: 2; grid-column: 1 / span var(--n); }
+  .yl-su { grid-row: 3; grid-column: 1 / span var(--n); }
+  .yl-au { grid-row: 4; grid-column: 1 / span var(--n); }
+}
+@container (min-width: 48rem) {
+  .yl { flex-direction: row; align-items: flex-end; gap: 1rem; }
+  .yl-head { flex: none; padding-bottom: 2px; }
+  .yl-track { flex: 1; min-width: 0; }
+}
+
+.yl-seg > * {
+  position: relative;
+  display: block;
+  min-width: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  border-radius: 0;
+}
+.yl-seg > *::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 1px;
+  height: var(--h-empty);
+  transform: translateX(-50%);
+  background: var(--faint);
+  opacity: .8;
+}
+.yl-seg > .f::before { opacity: .35; }
+.yl-seg > .p::before,
+.yl-seg > .g::before { width: 2px; height: var(--h-one); background: var(--strong); opacity: 1; }
+.yl-seg > .p.g::before { height: var(--h-both); }
+/* Today: a small dot under the day's tick, in the current season's ink. */
+.yl-seg > .t::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  background: var(--ink);
+}
+.yl a, .yl button.yl-day { cursor: pointer; }
+.yl .yl-day:hover::before, .yl .yl-day.is-active::before { background: var(--ink); }
+.yl .yl-day:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; border-radius: 1px; }
+
+.yl-tip {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  max-width: min(20rem, 100%);
+  padding: .45rem .65rem;
+  font-size: var(--text-xs);
+  line-height: 1.45;
+  color: var(--tone-50);
+  background: var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px -12px var(--shadow);
+  pointer-events: none;
+}
+.yl-tip[hidden] { display: none; }
+.yl-tip.is-menu { pointer-events: auto; }
+.yl-tip__date { display: block; font-family: var(--font-mono); color: var(--tone-200); }
+.yl-tip ul { list-style: none; margin: .2rem 0 0; }
+.yl-tip a { color: var(--tone-50); text-decoration-color: var(--tone-300); }
+.yl-tip a:hover { color: var(--tone-50); text-decoration-color: currentColor; }
+.yl-tip a:focus-visible { outline-color: var(--tone-50); }
+
+/* Footer: compact and decorative */
+.yl--compact { --h-empty: 3px; --h-one: 8px; --h-both: 12px; --row: 13px; gap: .35rem; }
+.yl--compact .yl-track { row-gap: .35rem; padding-bottom: 5px; }
+.yl--compact .yl-seg > .t::after { width: 3px; height: 3px; bottom: -5px; }
+.yl--compact .yl-year { font-size: .75rem; color: var(--muted); }
+.site-footer__year { grid-column: 1 / -1; min-width: 0; }
 
 /* ---------- Pages ---------- */
 

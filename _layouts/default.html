@@ -51,11 +51,24 @@
   d.documentElement.classList.add("js");
   var meta = d.querySelector('meta[name="theme-color"]');
   if (meta) meta.setAttribute("content", themes[season].theme_color);
+  /* Season icons and the nav mark: only this season's files are requested. */
+  var brand = {{ '/assets/brand/' | relative_url | jsonify }};
+  [["icon", "favicon-" + season + "-32.png", "32x32"],
+   ["icon", "favicon-" + season + "-192.png", "192x192"],
+   ["apple-touch-icon", "apple-touch-icon-" + season + "-180.png", "180x180"],
+   ["preload", "logo-" + season + "-mark-96.png"]].forEach(function (l) {
+    var el = d.createElement("link");
+    el.rel = l[0]; el.href = brand + l[1];
+    if (l[2]) { el.setAttribute("sizes", l[2]); el.type = "image/png"; } else { el.setAttribute("as", "image"); }
+    d.head.appendChild(el);
+  });
 })(document);
 </script>
-<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/brand/favicon-32.png' | relative_url }}">
-<link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/brand/favicon-192.png' | relative_url }}">
-<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/brand/apple-touch-icon-180.png' | relative_url }}">
+<noscript>
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/brand/favicon-' | append: _season | append: '-32.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/brand/favicon-' | append: _season | append: '-192.png' | relative_url }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/brand/apple-touch-icon-' | append: _season | append: '-180.png' | relative_url }}">
+</noscript>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
