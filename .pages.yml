@@ -115,6 +115,30 @@ content:
         label: Show on the home page
         type: boolean
 
+  - name: settings
+    label: Site settings
+    path: _data/settings.yml
+    type: file
+    fields:
+      - name: season
+        label: Colour season
+        description: Automatic follows each visitor's month (Dec-Feb winter, Mar-May spring, Jun-Aug summer, Sep-Nov autumn). Pick a season to pin it for everyone.
+        type: select
+        required: true
+        default: auto
+        options:
+          values:
+            - label: Automatic (by month)
+              value: auto
+            - label: Winter
+              value: winter
+            - label: Spring
+              value: spring
+            - label: Summer
+              value: summer
+            - label: Autumn
+              value: autumn
+
   - name: bio
     label: Bio
     path: _data/bio.yml

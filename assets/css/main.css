@@ -1,28 +1,92 @@
 /* ==========================================================================
-   Abdulloh Shavkatjonov: frost & winter daylight
-   Tokens first; every colour below comes from them.
+   Abdulloh Shavkatjonov: seasonal palettes
+   Tokens first; every colour below comes from them. The palette follows
+   <html data-season>, set by Liquid at build time and corrected before
+   first paint by the inline script in _layouts/default.html.
+   Theme-color values in _data/seasons.yml must match each --tone-50.
    ========================================================================== */
 
+/* Each season: five light tones (never body text), then derived dark tones.
+   Every text pair is >= 4.5:1 on tone-50 and tone-100; see PR #1 for the table. */
+
+/* Winter: ice. Also the fallback if data-season is missing. */
+:root,
+:root[data-season="winter"] {
+  --tone-50:  #E8F3FE; /* page background */
+  --tone-100: #CEDEEF; /* surfaces, cards, dividers */
+  --tone-200: #B3C8E0; /* borders, hover fills */
+  --tone-300: #91AFCB; /* secondary accents, tags */
+  --tone-400: #789CBB; /* primary accent, large decorative elements only */
+  --ink:          #16283A;
+  --muted:        #44596F;
+  --link:         #2F5B84;
+  --link-hover:   #1B3D5E;
+  --code-keyword: #1F4E7A;
+  --code-string:  #2B5C4F;
+  --code-number:  #5A3A7A;
+  --overlay:      #0E1A26; /* lightbox backdrop, shadows */
+}
+
+/* Spring: fresh green */
+:root[data-season="spring"] {
+  --tone-50:  #F1F8EE;
+  --tone-100: #DDEBD6;
+  --tone-200: #C2D9B8;
+  --tone-300: #9FC093;
+  --tone-400: #7FA774;
+  --ink:          #1B2A1A;
+  --muted:        #4C6148;
+  --link:         #3C6B33;
+  --link-hover:   #284B22;
+  --code-keyword: #2C5A24;
+  --code-string:  #2F5A4A;
+  --code-number:  #5C4A1C;
+  --overlay:      #101A0F;
+}
+
+/* Summer: wheat and sun */
+:root[data-season="summer"] {
+  --tone-50:  #FFF7E3;
+  --tone-100: #F8E8BF;
+  --tone-200: #EFD596;
+  --tone-300: #E0BC6A;
+  --tone-400: #C99F45;
+  --ink:          #2E2410;
+  --muted:        #6B5A33;
+  --link:         #80590F;
+  --link-hover:   #5C3F08;
+  --code-keyword: #6B470A;
+  --code-string:  #4F5520;
+  --code-number:  #7A3A1C;
+  --overlay:      #1C160A;
+}
+
+/* Autumn: terracotta */
+:root[data-season="autumn"] {
+  --tone-50:  #FBF1E8;
+  --tone-100: #F2DDC9;
+  --tone-200: #E6C3A5;
+  --tone-300: #D4A07A;
+  --tone-400: #BD7D54;
+  --ink:          #2B1A10;
+  --muted:        #6A4D3A;
+  --link:         #94502A;
+  --link-hover:   #6B381B;
+  --code-keyword: #83431F;
+  --code-string:  #56502A;
+  --code-number:  #7A3048;
+  --overlay:      #1D120B;
+}
+
 :root {
-  /* Palette: all five are light. None is used for text on the page. */
-  --ice-50:  #E8F3FE; /* page background */
-  --ice-100: #CEDEEF; /* surfaces, cards, dividers */
-  --ice-200: #B3C8E0; /* borders, hover fills */
-  --ice-300: #91AFCB; /* secondary accents, tags */
-  --ice-400: #789CBB; /* primary accent, large decorative elements only */
-
-  /* Derived text tones, same hue family. WCAG ratios on ice-50 / ice-100:
-     ink 13.36 / 10.95, muted 6.43 / 5.27, link 6.33 / 5.19, link-hover 9.96 / 8.17 */
-  --ink:        #16283A;
-  --muted:      #44596F;
-  --link:       #2F5B84;
-  --link-hover: #1B3D5E;
-
-  --bg:      var(--ice-50);
-  --surface: var(--ice-100);
-  --rule:    var(--ice-200);
-  --accent:  var(--ice-400);
+  /* Season-neutral roles used by components */
+  --bg:      var(--tone-50);
+  --surface: var(--tone-100);
+  --rule:    var(--tone-200);
+  --accent:  var(--tone-400);
   --focus:   var(--link);
+  --mark:    var(--link); /* nav logo fill */
+  --shadow:  color-mix(in srgb, var(--overlay) 35%, transparent);
 
   --font-serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
   --font-sans: "Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -85,7 +149,7 @@ a {
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: .2em;
-  text-decoration-color: var(--ice-300);
+  text-decoration-color: var(--tone-300);
   transition: color .2s var(--ease), text-decoration-color .2s var(--ease);
 }
 a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
@@ -97,7 +161,7 @@ a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
 }
 .site-main:focus { outline: none; }
 
-::selection { background: var(--ice-200); color: var(--ink); }
+::selection { background: var(--tone-200); color: var(--ink); }
 
 .meta {
   font-family: var(--font-mono);
@@ -124,10 +188,10 @@ a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
   z-index: 100;
   padding: .5rem .9rem;
   background: var(--ink);
-  color: var(--ice-50);
+  color: var(--tone-50);
   border-radius: var(--radius);
 }
-.skip-link:focus { top: .75rem; color: var(--ice-50); }
+.skip-link:focus { top: .75rem; color: var(--tone-50); }
 
 .wrap {
   width: 100%;
@@ -162,7 +226,19 @@ a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
   white-space: nowrap;
 }
 .site-name:hover { color: var(--link); }
-.site-name__mark { width: 2rem; height: 2rem; flex: none; }
+/* One PNG for every season: its alpha is the mask, the fill is a seasonal token. */
+.site-name__mark {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  flex: none;
+  background-color: var(--mark);
+  -webkit-mask: url("../brand/logo-mark-96.png") center / contain no-repeat;
+  mask: url("../brand/logo-mark-96.png") center / contain no-repeat;
+}
+@supports not ((mask-image: none) or (-webkit-mask-image: none)) {
+  .site-name__mark { background: url("../brand/logo-mark-96.png") center / contain no-repeat; }
+}
 
 .site-nav { position: relative; }
 
@@ -180,7 +256,7 @@ a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
   font-weight: 500;
   border-bottom: 1px solid transparent;
 }
-.nav-links a:hover { color: var(--link); border-bottom-color: var(--ice-300); }
+.nav-links a:hover { color: var(--link); border-bottom-color: var(--tone-300); }
 .nav-links a[aria-current] { border-bottom-color: var(--ink); }
 
 .nav-toggle {
@@ -196,7 +272,7 @@ a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
   border-radius: var(--radius);
   cursor: pointer;
 }
-.nav-toggle:hover { background: var(--ice-100); }
+.nav-toggle:hover { background: var(--tone-100); }
 
 @media (max-width: 40rem) {
   .js .nav-toggle:not([hidden]) { display: inline-flex; }
@@ -212,7 +288,7 @@ a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
     background: var(--bg);
     border: 1px solid var(--rule);
     border-radius: var(--radius);
-    box-shadow: 0 12px 32px -16px rgba(22, 40, 58, .35);
+    box-shadow: 0 12px 32px -16px var(--shadow);
   }
   .js .nav-links:not(.is-open) { display: none; }
   .js .nav-links a {
@@ -220,7 +296,7 @@ a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
     padding: .7rem 1rem;
     border-bottom: 0;
   }
-  .js .nav-links a:hover { background: var(--ice-100); }
+  .js .nav-links a:hover { background: var(--tone-100); }
   .js .nav-links a[aria-current] { box-shadow: inset 2px 0 0 var(--ink); }
   /* Without JS the links simply wrap under the name. */
   html:not(.js) .site-header__inner { flex-wrap: wrap; padding-block: .75rem; }
@@ -393,7 +469,7 @@ a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
   background: var(--bg);
   transition: background-color .25s var(--ease), border-color .25s var(--ease);
 }
-.project:hover { background: var(--surface); border-color: var(--ice-300); }
+.project:hover { background: var(--surface); border-color: var(--tone-300); }
 
 .project__cover {
   aspect-ratio: 16 / 9;
@@ -421,7 +497,7 @@ a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
   font-family: var(--font-serif);
   font-size: clamp(4rem, 9vw, 5.5rem);
   line-height: 1;
-  color: var(--ice-400); /* decorative, aria-hidden */
+  color: var(--tone-400); /* decorative, aria-hidden */
   transition: transform .5s var(--ease);
 }
 .project:hover .project__cover--empty span { transform: translateY(-3px); }
@@ -446,7 +522,7 @@ a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
   padding: .1rem .55rem;
   font-size: var(--text-xs);
   color: var(--ink);
-  border: 1px solid var(--ice-300);
+  border: 1px solid var(--tone-300);
   border-radius: 999px;
   line-height: 1.6;
 }
@@ -521,10 +597,10 @@ a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
   padding: 0;
   border: 0;
   background: transparent;
-  color: var(--ice-50);
+  color: var(--tone-50);
   overflow: hidden;
 }
-.lightbox::backdrop { background: rgba(14, 26, 38, .95); }
+.lightbox::backdrop { background: color-mix(in srgb, var(--overlay) 95%, transparent); }
 .lightbox[open] { display: grid; grid-template-rows: minmax(0, 1fr) auto; animation: page-in .2s var(--ease) both; }
 
 .lightbox__stage {
@@ -542,7 +618,7 @@ a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
   height: auto;
   object-fit: contain;
   border-radius: 2px;
-  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, .6);
+  box-shadow: 0 30px 80px -30px color-mix(in srgb, var(--overlay) 80%, transparent);
 }
 .lightbox__bar {
   display: flex;
@@ -552,11 +628,11 @@ a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
   padding: .75rem var(--gutter) 1.25rem;
 }
 .lightbox__text { min-width: 0; }
-.lightbox__caption { font-size: var(--text-sm); color: var(--ice-50); }
+.lightbox__caption { font-size: var(--text-sm); color: var(--tone-50); }
 .lightbox__meta {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--ice-200); /* 9.08:1 on the backdrop */
+  color: var(--tone-200); /* >= 9:1 on the backdrop in every season */
 }
 .lightbox__controls { display: flex; gap: .5rem; flex: none; }
 .lightbox__btn {
@@ -565,15 +641,15 @@ a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
   width: 2.75rem;
   height: 2.75rem;
   padding: 0;
-  color: var(--ice-50);
-  background: rgba(232, 243, 254, .08);
-  border: 1px solid rgba(232, 243, 254, .25);
+  color: var(--tone-50);
+  background: color-mix(in srgb, var(--tone-50) 8%, transparent);
+  border: 1px solid color-mix(in srgb, var(--tone-50) 25%, transparent);
   border-radius: 999px;
   cursor: pointer;
   transition: background-color .2s var(--ease);
 }
-.lightbox__btn:hover { background: rgba(232, 243, 254, .18); }
-.lightbox__btn:focus-visible { outline-color: var(--ice-50); }
+.lightbox__btn:hover { background: color-mix(in srgb, var(--tone-50) 18%, transparent); }
+.lightbox__btn:focus-visible { outline-color: var(--tone-50); }
 .lightbox__btn .icon { width: 1.2rem; height: 1.2rem; }
 .lightbox__close { position: absolute; top: .75rem; right: .75rem; }
 
@@ -692,12 +768,12 @@ a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
   border-bottom-color: var(--ink);
 }
 
-/* Rouge tokens: all measured >= 4.5:1 on --surface */
-.highlight .c, .highlight .c1, .highlight .cm, .highlight .cs { color: #44596F; font-style: italic; }
-.highlight .k, .highlight .kd, .highlight .kn, .highlight .kr, .highlight .kt, .highlight .kc { color: #1F4E7A; font-weight: 600; }
-.highlight .s, .highlight .s1, .highlight .s2, .highlight .sb { color: #2B5C4F; }
-.highlight .m, .highlight .mi, .highlight .mf { color: #5A3A7A; }
-.highlight .nf, .highlight .nc, .highlight .nn { color: #16283A; font-weight: 600; }
+/* Rouge tokens: every season measured >= 4.5:1 on --surface */
+.highlight .c, .highlight .c1, .highlight .cm, .highlight .cs { color: var(--muted); font-style: italic; }
+.highlight .k, .highlight .kd, .highlight .kn, .highlight .kr, .highlight .kt, .highlight .kc { color: var(--code-keyword); font-weight: 600; }
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sb { color: var(--code-string); }
+.highlight .m, .highlight .mi, .highlight .mf { color: var(--code-number); }
+.highlight .nf, .highlight .nc, .highlight .nn { color: var(--ink); font-weight: 600; }
 
 .post-pager {
   display: grid;

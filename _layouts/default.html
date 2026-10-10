@@ -15,7 +15,8 @@
 {%- assign _desc = _desc | strip_html | strip_newlines | strip -%}
 {%- assign _image = page.cover | default: "/assets/brand/og-default.jpg" -%}
 {%- unless _image contains "://" -%}{%- assign _image = _image | absolute_url -%}{%- endunless -%}
-<html lang="{{ site.lang | default: 'en' }}">
+{%- include season.html -%}
+<html lang="{{ site.lang | default: 'en' }}" data-season="{{ _season }}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,7 +36,23 @@
 <meta property="og:type" content="website">
 {%- endif %}
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#E8F3FE">
+<meta name="theme-color" content="{{ site.data.seasons[_season].theme_color }}">
+<script>
+/* Runs before any stylesheet, so the first paint already has the right season.
+   Order: ?season= in the URL (this view only) > CMS setting > visitor's month. */
+(function (d) {
+  var themes = {{ site.data.seasons | jsonify }};
+  var season = {{ _season_setting | jsonify }};
+  var q = /[?&]season=(winter|spring|summer|autumn)(?:&|$)/.exec(location.search);
+  if (q) season = q[1];
+  else if (!themes[season]) season = ["winter", "winter", "spring", "spring", "spring", "summer",
+    "summer", "summer", "autumn", "autumn", "autumn", "winter"][new Date().getMonth()];
+  d.documentElement.setAttribute("data-season", season);
+  d.documentElement.classList.add("js");
+  var meta = d.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute("content", themes[season].theme_color);
+})(document);
+</script>
 <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/brand/favicon-32.png' | relative_url }}">
 <link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/brand/favicon-192.png' | relative_url }}">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/brand/apple-touch-icon-180.png' | relative_url }}">
@@ -44,7 +61,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 {% feed_meta %}
-<script>document.documentElement.classList.add('js')</script>
 <script src="{{ '/assets/js/main.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 </head>
 <body>

@@ -1,0 +1,10 @@
+# Browser chrome colour per season. Each value must match that season's
+# --tone-50 in assets/css/main.css. Months follow the northern hemisphere.
+winter:
+  theme_color: "#E8F3FE"
+spring:
+  theme_color: "#F1F8EE"
+summer:
+  theme_color: "#FFF7E3"
+autumn:
+  theme_color: "#FBF1E8"
