@@ -1,0 +1,19 @@
+{%- assign bio = site.data.bio -%}
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div class="site-footer__about">
+      <p class="site-footer__name">{{ bio.name | default: site.title }}</p>
+      <p class="site-footer__note">Writing, projects and a photo a day.</p>
+    </div>
+    <ul class="social" aria-label="Contact and social links">
+      {%- if bio.email and bio.email != "" %}
+      <li><a href="mailto:{{ bio.email }}">{% include icon.html name="mail" %}<span>{{ bio.email }}</span></a></li>
+      {%- endif %}
+      {%- for link in bio.links %}
+      <li><a href="{{ link.url }}" rel="me noopener" target="_blank">{% include link-icon.html url=link.url %}<span>{{ link.label }}</span></a></li>
+      {%- endfor %}
+      <li><a href="{{ '/feed.xml' | relative_url }}">{% include icon.html name="rss" %}<span>RSS</span></a></li>
+    </ul>
+    <p class="site-footer__legal meta">&copy; {{ site.time | date: "%Y" }} {{ bio.name | default: site.title }}</p>
+  </div>
+</footer>

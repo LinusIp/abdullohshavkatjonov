@@ -1,0 +1,19 @@
+{%- assign _path = page.url | default: "/" -%}
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="site-name" href="{{ '/' | relative_url }}"{% if _path == "/" %} aria-current="page"{% endif %}>
+      <img class="site-name__mark" src="{{ '/assets/brand/logo-mark-96.png' | relative_url }}" alt="" width="32" height="32" decoding="async">
+      <span>{{ site.data.bio.name | default: site.title }}</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" hidden>
+        {% include icon.html name="menu" %}<span>Menu</span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="{{ '/blog/' | relative_url }}"{% if _path == "/blog/" %} aria-current="page"{% elsif page.layout == "post" %} aria-current="true"{% endif %}>Blog</a></li>
+        <li><a href="{{ '/projects/' | relative_url }}"{% if _path == "/projects/" %} aria-current="page"{% endif %}>Projects</a></li>
+        <li><a href="{{ '/gallery/' | relative_url }}"{% if _path == "/gallery/" %} aria-current="page"{% endif %}>Gallery</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,19 @@
+---
+layout: page
+title: Blog
+intro: Notes on game development, AI, studying, and whatever I'm figuring out this week.
+description: Every post on Abdulloh Shavkatjonov's blog, grouped by year.
+---
+{%- assign _years = site.posts | group_by_exp: "post", "post.date | date: '%Y'" -%}
+{%- for year in _years %}
+<section class="year" aria-labelledby="y{{ year.name }}">
+  <h2 class="year__title meta" id="y{{ year.name }}">{{ year.name }}</h2>
+  <ol class="post-list">
+    {%- for post in year.items %}
+    {% include post-card.html post=post %}
+    {%- endfor %}
+  </ol>
+</section>
+{%- else %}
+<p class="empty">No posts yet.</p>
+{%- endfor %}
