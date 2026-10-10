@@ -13,7 +13,7 @@ facts:
   - label: Certified
     value: GameDevHQ Professional Game Developer, 2026
   - label: Tools
-    value: Unity, C#, Rust, Python, JavaScript
+    value: Unity, C#, C, Python, C++
   - label: Scores
     value: IELTS 6.0, SAT 1300
 links:
