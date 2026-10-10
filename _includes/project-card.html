@@ -1,0 +1,46 @@
+{%- comment -%}Usage: {% include project-card.html project=project %}{%- endcomment -%}
+{%- assign pr = include.project -%}
+{%- comment -%}Include variables share page scope in Jekyll 3, so reset them per card.{%- endcomment -%}
+{%- assign _cover = "" -%}
+{%- assign _vid = nil -%}
+{%- if pr.cover and pr.cover != "" -%}
+  {%- if pr.cover contains "://" -%}{%- assign _cover = pr.cover -%}{%- else -%}{%- assign _cover = pr.cover | relative_url -%}{%- endif -%}
+{%- elsif pr.video_url and pr.video_url != "" -%}
+  {%- assign _vid = pr.video_url | split: "v=" | last | split: "&" | first | split: "youtu.be/" | last | split: "?" | first -%}
+  {%- capture _cover %}https://i.ytimg.com/vi/{{ _vid }}/hqdefault.jpg{% endcapture -%}
+{%- endif -%}
+<article class="project">
+  {%- if _cover != "" %}
+  <div class="project__cover">
+    <img{% if _vid %} class="is-video-thumb"{% endif %} src="{{ _cover }}" alt="" width="480" height="270" loading="lazy" decoding="async">
+  </div>
+  {%- else %}
+  <div class="project__cover project__cover--empty" aria-hidden="true">
+    <span>{{ pr.title | slice: 0 | upcase }}</span>
+  </div>
+  {%- endif %}
+  <div class="project__body">
+    <h3 class="project__title">{{ pr.title | escape }}</h3>
+    {%- if pr.description %}
+    <p class="project__desc">{{ pr.description | escape }}</p>
+    {%- endif %}
+    {%- if pr.tags and pr.tags.size > 0 %}
+    <ul class="tags" aria-label="Tags">
+      {%- for tag in pr.tags %}<li>{{ tag | escape }}</li>{% endfor -%}
+    </ul>
+    {%- endif %}
+    {%- if pr.repo_url or pr.demo_url or pr.video_url %}
+    <ul class="project__links">
+      {%- if pr.demo_url and pr.demo_url != "" %}
+      <li><a href="{{ pr.demo_url }}" target="_blank" rel="noopener">{% include icon.html name="external" %}Play<span class="visually-hidden"> {{ pr.title | escape }}</span></a></li>
+      {%- endif %}
+      {%- if pr.repo_url and pr.repo_url != "" %}
+      <li><a href="{{ pr.repo_url }}" target="_blank" rel="noopener">{% include icon.html name="code" %}Code<span class="visually-hidden"> for {{ pr.title | escape }}</span></a></li>
+      {%- endif %}
+      {%- if pr.video_url and pr.video_url != "" %}
+      <li><a href="{{ pr.video_url }}" target="_blank" rel="noopener">{% include icon.html name="play" %}Video<span class="visually-hidden"> of {{ pr.title | escape }}</span></a></li>
+      {%- endif %}
+    </ul>
+    {%- endif %}
+  </div>
+</article>

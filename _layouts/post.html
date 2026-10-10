@@ -1,60 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ page.title }}</title>
-<!-- Magic tag: automatically fixes all image and link paths -->
-<base href="{{ site.baseurl }}/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#f9f9f7;       /* Bright off-white background */
-    --card:#ffffff;     /* Pure white cards */
-    --accent:#b58847;   /* Darker gold for readability on white */
-    --accent-2:#8a6433; /* Even darker gold for hover */
-    --text:#1a1a1a;     /* Near-black text */
-    --muted:#555555;    /* Dark grey for paragraph text */
-    --border:rgba(0,0,0,.1); /* Light grey borders */
-  }
-  * { box-sizing: border-box; }
-  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); line-height:1.7; padding:4rem 1.5rem; margin:0; }
-  .container { max-width: 720px; margin: 0 auto; }
-  a { color:var(--accent); text-decoration:none; transition:.3s; }
-  a:hover { color:var(--accent-2); }
-  
-  /* The back link uses an absolute path so it works perfectly */
-  .back-link { 
-    display:inline-flex; align-items:center; gap:.5rem; font-size:.8rem; font-weight:500; 
-    margin-bottom:2.5rem; padding:.5rem 1rem; border:1px solid var(--border); 
-    border-radius:999px; color:var(--muted); background: var(--card);
-  }
-  .back-link:hover { border-color:var(--accent); color:var(--accent); }
-  
-  .date { color:var(--accent); font-family:'JetBrains Mono',monospace; font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; margin-bottom:1rem; }
-  
-  h1 { font-family:'Playfair Display',serif; font-size:2.6rem; line-height:1.2; margin-bottom:1.5rem; letter-spacing:-0.02em; color:#111; }
-  h2, h3 { font-family:'Playfair Display',serif; color:#111; margin-top:2.5rem; margin-bottom:1rem; }
-  
-  p { margin-bottom:1.5rem; color:var(--muted); font-size:1.1rem; }
-  p strong { color:#111; font-weight:600; }
-  
-  /* Medium-style Images */
-  img { max-width: 100%; border-radius: 12px; border: 1px solid var(--border); margin: 2.5rem 0; display: block; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-  
-  /* Light mode Code Blocks */
-  pre { background: #f1f1f0; border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; overflow-x: auto; margin: 2.5rem 0; }
-  code { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; line-height: 1.6; color: #333; }
-  p code { background: rgba(0,0,0,.06); padding: .2rem .4rem; border-radius: 4px; font-size: 0.9em; color: var(--accent-2); }
-</style>
-</head>
-<body>
-  <div class="container">
-    <a href="{{ site.baseurl }}/" class="back-link">← Back to Portfolio</a>
-    <div class="date">{{ page.date | date: "%B %d, %Y" }}</div>
-    <h1>{{ page.title }}</h1>
-    {{ content }}
+---
+layout: default
+---
+{%- comment -%}
+  Pages CMS writes body images as relative paths (assets/<file>), because the
+  media output is "assets". Rewrite them to full site paths so they resolve from
+  /YYYY/MM/DD/slug.html without a <base> tag, which would break #anchors.
+{%- endcomment -%}
+{%- assign _assets = "/assets/" | relative_url -%}
+{%- assign _body = content
+  | replace: 'src="/assets/', 'src="ASSETS_ROOT'
+  | replace: 'src="assets/', 'src="ASSETS_ROOT'
+  | replace: 'href="/assets/', 'href="ASSETS_ROOT'
+  | replace: 'href="assets/', 'href="ASSETS_ROOT'
+  | replace: 'ASSETS_ROOT', _assets
+  | replace: '<img ', '<img loading="lazy" decoding="async" ' -%}
+<article class="wrap post" itemscope itemtype="https://schema.org/BlogPosting">
+  <header class="post-header">
+    <a class="back-link meta" href="{{ '/blog/' | relative_url }}">{% include icon.html name="arrow-left" %}All posts</a>
+    <time class="post-date meta" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%d %B %Y" }}</time>
+    <h1 class="post-title" itemprop="headline">{{ page.title | escape }}</h1>
+  </header>
+  <div class="prose" itemprop="articleBody">
+{{ _body }}
   </div>
-</body>
-</html>
+  {%- if page.previous or page.next %}
+  <nav class="post-pager" aria-label="More posts">
+    {%- if page.previous %}
+    <a class="post-pager__link post-pager__link--prev" href="{{ page.previous.url | relative_url }}" rel="prev">
+      <span class="meta">{% include icon.html name="arrow-left" %}Older</span>
+      <span class="post-pager__title">{{ page.previous.title | escape }}</span>
+    </a>
+    {%- endif %}
+    {%- if page.next %}
+    <a class="post-pager__link post-pager__link--next" href="{{ page.next.url | relative_url }}" rel="next">
+      <span class="meta">Newer{% include icon.html name="arrow-right" %}</span>
+      <span class="post-pager__title">{{ page.next.title | escape }}</span>
+    </a>
+    {%- endif %}
+  </nav>
+  {%- endif %}
+</article>

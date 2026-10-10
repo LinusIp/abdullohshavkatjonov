@@ -18,7 +18,7 @@ Now I write a new public function **LoadGame()** to load other scenes, and here 
 
 
 
-![](assets/img.webp)
+![MainMenu.cs: a public LoadGame() method that calls SceneManager.LoadScene(1)](assets/img.webp)
 
 
 
@@ -26,7 +26,7 @@ Now I write a new public function **LoadGame()** to load other scenes, and here 
 
 Here the 1 is an order number or we can say ID of the scene what we need to load,and it also can be a Name of the scene, in both cases it works.
 
-![](assets/img2.webp)
+![The line SceneManager.LoadScene(1); with the comment game scene](assets/img2.webp)
 
 And in order to be able to use a **SceneManager** I included a new library.
 
@@ -34,7 +34,7 @@ And in order to be able to use a **SceneManager** I included a new library.
 using UnityEngine.SceneManager;
 ```
 
-![](assets/img3.webp)
+![The line using UnityEngine.SceneManagement;](assets/img3.webp)
 
 And then I created a new button and then I added a new **OnClick()** action in inspector and from there I attach the **Canvas** to the **OnClick()** and once I attached I can choose the function it will call from here I go to **MainMenu** script and call **LoadGame()** function, why I attached the **Canvas**, well because the Main menu script is the component of the **Canvas** and I can use its functions and call them on some action, like clicking on button as in our case.
 

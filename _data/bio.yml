@@ -1,0 +1,28 @@
+name: Abdulloh Shavkatjonov
+tagline: AI & Robotics student at New Uzbekistan University, game developer, and founder of localSpace.
+intro: >-
+  I study AI & Robotics, but most of what I know comes from building things.
+  Curiosity about how games work turned into a habit of shipping: shooters,
+  physics puzzles, a space simulator, browser games, and now localSpace, a local
+  agent workspace written in Rust. Here I write about what I'm learning and keep
+  a daily photo log.
+photo: me.jpg
+facts:
+  - label: Studying
+    value: BSc AI & Robotics, New Uzbekistan University, 2024 to present
+  - label: Certified
+    value: GameDevHQ Professional Game Developer, 2026
+  - label: Tools
+    value: Unity, C#, Rust, Python, JavaScript
+  - label: Scores
+    value: IELTS 6.0, SAT 1300
+email: ""
+links:
+  - label: GitHub
+    url: https://github.com/LinusIp/
+  - label: YouTube
+    url: https://youtube.com/@shavkatjonovabdulloh
+  - label: LinkedIn
+    url: https://www.linkedin.com/in/abdulloh-shavkatjonov-418439271
+  - label: Instagram
+    url: https://www.instagram.com/aikcseng/

@@ -1,0 +1,9 @@
+{%- comment -%}Picks an icon from a URL. Usage: {% include link-icon.html url=link.url %}{%- endcomment -%}
+{%- assign _u = include.url | downcase -%}
+{%- if _u contains "github.com" -%}{% include icon.html name="github" %}
+{%- elsif _u contains "youtube.com" or _u contains "youtu.be" -%}{% include icon.html name="youtube" %}
+{%- elsif _u contains "linkedin.com" -%}{% include icon.html name="linkedin" %}
+{%- elsif _u contains "instagram.com" -%}{% include icon.html name="instagram" %}
+{%- elsif _u contains "mailto:" -%}{% include icon.html name="mail" %}
+{%- else -%}{% include icon.html name="globe" %}
+{%- endif -%}

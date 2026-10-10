@@ -1,6 +1,15 @@
 media:
-  input: assets
-  output: assets
+  # The first entry is the default: post images keep landing in assets/
+  # and are written into posts as assets/<file>, exactly as before.
+  - name: assets
+    label: Post images
+    input: assets
+    output: assets
+  - name: gallery
+    label: Daily photos
+    input: assets/gallery
+    output: assets/gallery
+    categories: [image]
 
 content:
   - name: posts
@@ -18,6 +27,158 @@ content:
         type: string
         default: post
         hidden: true
+      - name: description
+        label: Summary (optional)
+        description: One or two sentences for the blog list and link previews. Leave empty to use the start of the post.
+        type: string
+      - name: cover
+        label: Cover image (optional)
+        description: Used for link previews when the post is shared.
+        type: image
       - name: body
         label: Content
         type: rich-text
+
+  - name: gallery
+    label: Daily Photos
+    path: _gallery
+    type: collection
+    filename:
+      template: "{year}-{month}-{day}-{hour}{minute}{second}.md"
+      field: false
+    view:
+      fields: [image, date, caption]
+      primary: caption
+      sort: [date]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: image
+        label: Photo
+        type: image
+        required: true
+        options:
+          media: gallery
+      - name: date
+        label: Date
+        type: date
+        required: true
+      - name: caption
+        label: Caption (optional)
+        type: string
+      - name: location
+        label: Location (optional)
+        type: string
+
+  - name: projects
+    label: Projects
+    path: _projects
+    type: collection
+    filename: "{primary}.md"
+    view:
+      fields: [title, order, featured]
+      primary: title
+      sort: [order, title]
+      default:
+        sort: order
+        order: asc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: One-line description
+        type: string
+      - name: cover
+        label: Cover image (optional)
+        description: Leave empty on video projects to use the YouTube thumbnail.
+        type: image
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+      - name: repo_url
+        label: Repository URL
+        type: string
+      - name: demo_url
+        label: Demo or play URL
+        type: string
+      - name: video_url
+        label: YouTube URL
+        type: string
+      - name: order
+        label: Order (lower comes first)
+        type: number
+      - name: featured
+        label: Show on the home page
+        type: boolean
+
+  - name: settings
+    label: Site settings
+    path: _data/settings.yml
+    type: file
+    fields:
+      - name: season
+        label: Colour season
+        description: Automatic follows each visitor's month (Dec-Feb winter, Mar-May spring, Jun-Aug summer, Sep-Nov autumn). Pick a season to pin it for everyone.
+        type: select
+        required: true
+        default: auto
+        options:
+          values:
+            - label: Automatic (by month)
+              value: auto
+            - label: Winter
+              value: winter
+            - label: Spring
+              value: spring
+            - label: Summer
+              value: summer
+            - label: Autumn
+              value: autumn
+
+  - name: bio
+    label: Bio
+    path: _data/bio.yml
+    type: file
+    fields:
+      - name: name
+        label: Name
+        type: string
+      - name: tagline
+        label: Tagline
+        type: string
+      - name: intro
+        label: Intro
+        type: text
+      - name: photo
+        label: Photo
+        type: image
+      - name: facts
+        label: Quick facts
+        description: Short label and value pairs shown under the intro (education, certificates, tools).
+        type: object
+        list: true
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: value
+            label: Value
+            type: string
+      - name: email
+        label: Email (optional, shown in the footer)
+        type: string
+      - name: links
+        label: Links
+        type: object
+        list: true
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: url
+            label: URL
+            type: string

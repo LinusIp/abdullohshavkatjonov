@@ -1,0 +1,19 @@
+{%- comment -%}
+  Sets _season_setting (auto | winter | spring | summer | autumn, from
+  _data/settings.yml) and _season (the season to render at build time).
+  "auto" uses the build date; the inline script in default.html then
+  corrects it to the visitor's month before first paint.
+{%- endcomment -%}
+{%- assign _season_setting = site.data.settings.season | default: "auto" | downcase | strip -%}
+{%- case _season_setting -%}
+  {%- when "winter" or "spring" or "summer" or "autumn" -%}
+    {%- assign _season = _season_setting -%}
+  {%- else -%}
+    {%- assign _season_setting = "auto" -%}
+    {%- assign _month = site.time | date: "%-m" | plus: 0 -%}
+    {%- if _month == 12 or _month <= 2 -%}{%- assign _season = "winter" -%}
+    {%- elsif _month <= 5 -%}{%- assign _season = "spring" -%}
+    {%- elsif _month <= 8 -%}{%- assign _season = "summer" -%}
+    {%- else -%}{%- assign _season = "autumn" -%}
+    {%- endif -%}
+{%- endcase -%}

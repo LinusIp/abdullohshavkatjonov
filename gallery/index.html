@@ -1,0 +1,16 @@
+---
+layout: page
+title: Gallery
+intro: A daily photo log, newest first. Select a photo to see it larger; arrow keys move between photos.
+description: A daily photo log by Abdulloh Shavkatjonov.
+---
+{%- assign _photos = site.gallery | sort: "date" | reverse -%}
+{%- if _photos.size > 0 %}
+<ul class="photo-grid photo-grid--full" data-gallery>
+  {%- for photo in _photos %}
+  {% include gallery-item.html photo=photo meta=true %}
+  {%- endfor %}
+</ul>
+{%- else %}
+<p class="empty">No photos yet.</p>
+{%- endif %}

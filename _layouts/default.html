@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{%- assign bio = site.data.bio -%}
+{%- if page.title and page.url != "/" -%}
+  {%- assign _title = page.title | append: " · " | append: site.title -%}
+{%- else -%}
+  {%- assign _title = site.title | append: " · AI & Robotics student and game developer" -%}
+{%- endif -%}
+{%- if page.description and page.description != "" -%}
+  {%- assign _desc = page.description -%}
+{%- elsif page.layout == "post" -%}
+  {%- assign _desc = page.content | strip_html | replace: "&nbsp;", " " | truncatewords: 30 -%}
+{%- else -%}
+  {%- assign _desc = site.description -%}
+{%- endif -%}
+{%- assign _desc = _desc | strip_html | strip_newlines | strip -%}
+{%- assign _image = page.cover | default: "/assets/brand/og-default.jpg" -%}
+{%- unless _image contains "://" -%}{%- assign _image = _image | absolute_url -%}{%- endunless -%}
+{%- include season.html -%}
+<html lang="{{ site.lang | default: 'en' }}" data-season="{{ _season }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ _title | escape }}</title>
+<meta name="description" content="{{ _desc | escape }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<meta property="og:site_name" content="{{ site.title | escape }}">
+<meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+<meta property="og:description" content="{{ _desc | escape }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:image" content="{{ _image }}">
+<meta property="og:locale" content="en_US">
+{%- if page.layout == "post" %}
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+{%- else %}
+<meta property="og:type" content="website">
+{%- endif %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="{{ site.data.seasons[_season].theme_color }}">
+<script>
+/* Runs before any stylesheet, so the first paint already has the right season.
+   Order: ?season= in the URL (this view only) > CMS setting > visitor's month. */
+(function (d) {
+  var themes = {{ site.data.seasons | jsonify }};
+  var season = {{ _season_setting | jsonify }};
+  var q = /[?&]season=(winter|spring|summer|autumn)(?:&|$)/.exec(location.search);
+  if (q) season = q[1];
+  else if (!themes[season]) season = ["winter", "winter", "spring", "spring", "spring", "summer",
+    "summer", "summer", "autumn", "autumn", "autumn", "winter"][new Date().getMonth()];
+  d.documentElement.setAttribute("data-season", season);
+  d.documentElement.classList.add("js");
+  var meta = d.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute("content", themes[season].theme_color);
+  /* Season icons and the nav mark: only this season's files are requested. */
+  var brand = {{ '/assets/brand/' | relative_url | jsonify }};
+  [["icon", "favicon-" + season + "-32.png", "32x32"],
+   ["icon", "favicon-" + season + "-192.png", "192x192"],
+   ["apple-touch-icon", "apple-touch-icon-" + season + "-180.png", "180x180"],
+   ["preload", "logo-" + season + "-mark-96.png"]].forEach(function (l) {
+    var el = d.createElement("link");
+    el.rel = l[0]; el.href = brand + l[1];
+    if (l[2]) { el.setAttribute("sizes", l[2]); el.type = "image/png"; } else { el.setAttribute("as", "image"); }
+    d.head.appendChild(el);
+  });
+})(document);
+</script>
+<noscript>
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/brand/favicon-' | append: _season | append: '-32.png' | relative_url }}">
+<link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/brand/favicon-' | append: _season | append: '-192.png' | relative_url }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/brand/apple-touch-icon-' | append: _season | append: '-180.png' | relative_url }}">
+</noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+{% feed_meta %}
+<script src="{{ '/assets/js/main.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+{% include nav.html %}
+<main id="main" class="site-main" tabindex="-1">
+{{ content }}
+</main>
+{% include footer.html %}
+</body>
+</html>

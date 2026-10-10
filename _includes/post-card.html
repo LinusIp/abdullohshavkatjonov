@@ -1,0 +1,16 @@
+{%- comment -%}One row in a blog list. Usage: {% include post-card.html post=post %}{%- endcomment -%}
+{%- assign p = include.post -%}
+{%- if p.description and p.description != "" -%}
+  {%- assign _excerpt = p.description | strip_html | strip -%}
+{%- else -%}
+  {%- assign _excerpt = p.content | strip_html | replace: "&nbsp;", " " | truncatewords: 30 -%}
+{%- endif -%}
+<li class="post-row">
+  <time class="post-row__date meta" datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%d %b %Y" }}</time>
+  <div class="post-row__body">
+    <h3 class="post-row__title"><a href="{{ p.url | relative_url }}">{{ p.title | escape }}</a></h3>
+    {%- if include.excerpt != false and _excerpt != "" %}
+    <p class="post-row__excerpt">{{ _excerpt }}</p>
+    {%- endif %}
+  </div>
+</li>

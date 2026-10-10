@@ -1,0 +1,12 @@
+---
+layout: page
+title: Projects
+intro: Games, tools and experiments. Most of them are playable in the browser or on itch.io.
+description: Games, tools and experiments by Abdulloh Shavkatjonov, from Unity games to localSpace.
+---
+{%- assign _projects = site.projects | sort: "order", "last" -%}
+<div class="project-grid">
+  {%- for project in _projects %}
+  {% include project-card.html project=project %}
+  {%- endfor %}
+</div>

@@ -1,4 +1,35 @@
 title: Abdulloh Shavkatjonov
+description: >-
+  Abdulloh Shavkatjonov: AI & Robotics student at New Uzbekistan University,
+  game developer and founder of localSpace. Writing, projects and a daily photo log.
+lang: en
+url: "https://linusip.github.io"
 baseurl: "/abdullohshavkatjonov"
 future: true
 markdown: kramdown
+
+plugins:
+  - jekyll-feed
+
+feed:
+  path: feed.xml
+
+collections:
+  gallery:
+    output: false
+  projects:
+    output: false
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .jekyll-cache

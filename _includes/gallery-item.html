@@ -1,0 +1,16 @@
+{%- comment -%}Usage: {% include gallery-item.html photo=photo meta=true %}{%- endcomment -%}
+{%- assign ph = include.photo -%}
+{%- if ph.image contains "://" -%}{%- assign _src = ph.image -%}{%- else -%}{%- assign _src = ph.image | relative_url -%}{%- endif -%}
+{%- assign _date = ph.date | date: "%d %b %Y" -%}
+{%- if ph.caption and ph.caption != "" -%}{%- assign _alt = ph.caption -%}{%- else -%}{%- assign _alt = "Photo from " | append: _date -%}{%- endif -%}
+<li class="photo">
+  <a class="photo__link" href="{{ _src }}" data-lightbox data-caption="{{ ph.caption | escape }}" data-date="{{ _date }}" data-location="{{ ph.location | escape }}">
+    <img src="{{ _src }}" alt="{{ _alt | escape }}" width="600" height="600" loading="lazy" decoding="async">
+  </a>
+  {%- if include.meta %}
+  <p class="photo__meta">
+    <time class="meta" datetime="{{ ph.date | date: '%Y-%m-%d' }}">{{ _date }}</time>
+    {%- if ph.caption and ph.caption != "" %}<span class="photo__caption">{{ ph.caption | escape }}</span>{% endif %}
+  </p>
+  {%- endif %}
+</li>
