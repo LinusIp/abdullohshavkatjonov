@@ -1,0 +1,32 @@
+{%- comment -%}
+  Every category used by at least one post, most-used first (ties A-Z).
+  Sets _ti_rows: an array of "rank~name~count" strings, and _ti_total.
+  Built from the posts themselves, so a newly typed category appears here
+  with no code change.
+{%- endcomment -%}
+{%- assign _ti_posts = "" -%}
+{%- assign _ti_seen = "|" -%}
+{%- for _ti_p in site.posts -%}
+  {%- include topics-of.html post=_ti_p -%}
+  {%- assign _ti_posts = _ti_posts | append: "^" | append: _pt_str -%}
+  {%- for _ti_t in _pt_list -%}
+    {%- if _ti_t != "" -%}
+      {%- capture _ti_needle %}|{{ _ti_t }}|{% endcapture -%}
+      {%- unless _ti_seen contains _ti_needle -%}{%- assign _ti_seen = _ti_seen | append: _ti_t | append: "|" -%}{%- endunless -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+{%- assign _ti_post_strs = _ti_posts | split: "^" -%}
+{%- assign _ti_names = _ti_seen | split: "|" -%}
+{%- capture _ti_rows_str -%}
+  {%- for _ti_t in _ti_names -%}
+    {%- if _ti_t != "" -%}
+      {%- capture _ti_needle %}|{{ _ti_t }}|{% endcapture -%}
+      {%- assign _ti_n = 0 -%}
+      {%- for _ti_s in _ti_post_strs -%}{%- if _ti_s contains _ti_needle -%}{%- assign _ti_n = _ti_n | plus: 1 -%}{%- endif -%}{%- endfor -%}
+      {{ 100000 | minus: _ti_n }}~{{ _ti_t }}~{{ _ti_n }}^
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- assign _ti_rows = _ti_rows_str | split: "^" | compact | sort -%}
+{%- assign _ti_total = site.posts | size -%}

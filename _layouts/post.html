@@ -17,7 +17,10 @@ layout: default
 <article class="wrap post" itemscope itemtype="https://schema.org/BlogPosting">
   <header class="post-header">
     <a class="back-link meta" href="{{ '/blog/' | relative_url }}">{% include icon.html name="arrow-left" %}All posts</a>
-    <time class="post-date meta" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%d %B %Y" }}</time>
+    <div class="post-meta">
+      <time class="post-date meta" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%d %B %Y" }}</time>
+      {%- include topic-labels.html post=page %}
+    </div>
     <h1 class="post-title" itemprop="headline">{{ page.title | escape }}</h1>
   </header>
   <div class="prose" itemprop="articleBody">

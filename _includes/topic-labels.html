@@ -1,0 +1,9 @@
+{%- comment -%}Small category labels for one post, each linking to the filtered blog. Usage: {% include topic-labels.html post=post %}{%- endcomment -%}
+{%- include topics-of.html post=include.post -%}
+{%- if _pt_str != "|" -%}
+<ul class="post-topics" aria-label="Categories">
+  {%- for _tl in _pt_list -%}{%- if _tl != "" -%}
+  <li><a href="{{ '/blog/' | relative_url }}?topic={{ _tl | url_encode }}" data-topic="{{ _tl | escape }}">{{ _tl | escape }}</a></li>
+  {%- endif -%}{%- endfor -%}
+</ul>
+{%- endif -%}

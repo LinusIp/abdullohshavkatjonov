@@ -2,6 +2,8 @@
 title: Multi Interst Burnout
 date: 2026-08-24
 layout: post
+topics:
+  - life
 ---
 # Just think about it...
 

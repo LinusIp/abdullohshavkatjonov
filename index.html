@@ -37,6 +37,7 @@ layout: default
     <h2 class="section-title" id="writing">Writing</h2>
     <a class="section-more" href="{{ '/blog/' | relative_url }}">All posts{% include icon.html name="arrow-right" %}</a>
   </div>
+  {% include topic-chips.html %}
   {%- if site.posts.size > 0 %}
   <ol class="post-list">
     {%- for post in site.posts limit: 5 %}

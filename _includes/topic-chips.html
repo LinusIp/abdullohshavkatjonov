@@ -1,0 +1,22 @@
+{%- comment -%}
+  Category chips: "All" plus one per category in use, with post counts.
+  {% include topic-chips.html filter=true %}  on /blog/: main.js filters in place
+                                               (hidden without JavaScript)
+  {% include topic-chips.html %}              elsewhere: plain links to /blog/?topic=...
+{%- endcomment -%}
+{%- include topic-index.html -%}
+{%- if _ti_rows.size > 0 -%}
+{%- assign _tc_blog = "/blog/" | relative_url -%}
+<div class="topics{% if include.filter %} topics--filter{% endif %}"{% if include.filter %} data-topic-filter{% endif %} role="group" aria-label="{% if include.filter %}Filter posts by category{% else %}Blog categories{% endif %}">
+  <ul class="topics__list">
+    <li><a class="topic" href="{{ _tc_blog }}" data-topic=""{% if include.filter %} aria-current="true"{% endif %}>All<span class="topic__count"><span class="visually-hidden">, </span>{{ _ti_total }}<span class="visually-hidden"> posts</span></span></a></li>
+    {%- for _tc_row in _ti_rows %}
+      {%- assign _tc = _tc_row | split: "~" %}
+    <li><a class="topic" href="{{ _tc_blog }}?topic={{ _tc[1] | url_encode }}" data-topic="{{ _tc[1] | escape }}">{{ _tc[1] | escape }}<span class="topic__count"><span class="visually-hidden">, </span>{{ _tc[2] }}<span class="visually-hidden"> {% if _tc[2] == "1" %}post{% else %}posts{% endif %}</span></span></a></li>
+    {%- endfor %}
+  </ul>
+  {%- if include.filter %}
+  <p class="visually-hidden" aria-live="polite" data-topic-status></p>
+  {%- endif %}
+</div>
+{%- endif -%}
