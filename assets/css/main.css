@@ -181,6 +181,9 @@ a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
 
 .icon { flex: none; width: 1.05em; height: 1.05em; }
 
+/* The hidden attribute always wins over component display rules. */
+[hidden] { display: none !important; }
+
 .visually-hidden {
   position: absolute !important;
   width: 1px; height: 1px;
@@ -435,7 +438,7 @@ a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
 }
 @media (min-width: 40rem) {
   .post-row { grid-template-columns: 8.5rem minmax(0, 1fr); gap: 2rem; }
-  .post-row__date { padding-top: .5rem; }
+  .post-row__meta { padding-top: .5rem; }
 }
 .post-row__title {
   font-size: clamp(1.35rem, 2.6vw, 1.6rem);
@@ -458,6 +461,77 @@ a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
   font-size: var(--text-sm);
   line-height: 1.65;
 }
+
+/* ---------- Categories ---------- */
+
+.topics { padding-top: 1.25rem; }
+.page .topics { padding-top: 1.75rem; }
+/* The /blog/ filter needs JavaScript; without it the full list shows. */
+html:not(.js) .topics--filter { display: none; }
+.topics__list {
+  display: flex;
+  flex-wrap: wrap; /* wraps on narrow screens; never scrolls the page */
+  gap: .45rem;
+  list-style: none;
+}
+.topic {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .45rem;
+  min-height: 2rem;
+  padding: .3rem .8rem;
+  font-size: var(--text-sm);
+  line-height: 1.3;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  transition: background-color .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease);
+}
+.topic:hover { color: var(--ink); background: var(--surface); border-color: var(--tone-300); }
+.topic__count { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--muted); }
+.topic[aria-current="true"] { color: var(--tone-50); background: var(--ink); border-color: var(--ink); }
+.topic[aria-current="true"] .topic__count { color: var(--tone-200); }
+.topic-empty { padding: 2rem 0 0; }
+
+.post-row__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .3rem .6rem;
+  align-content: flex-start;
+}
+@media (min-width: 40rem) {
+  /* Wide rows: date on top, labels underneath in the date column. */
+  .post-row__meta { flex-direction: column; align-items: flex-start; }
+}
+.post-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem;
+  list-style: none;
+}
+.post-topics a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.5rem;
+  padding: 0 .5rem;
+  font-size: var(--text-xs);
+  line-height: 1.2;
+  color: var(--muted);
+  text-decoration: none;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+}
+.post-topics a:hover { color: var(--link); border-color: var(--tone-300); }
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .4rem .75rem;
+  margin-bottom: .75rem;
+}
+.post-meta .post-date { margin-bottom: 0; }
 
 /* ---------- Projects ---------- */
 

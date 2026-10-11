@@ -163,6 +163,74 @@
   var yl = document.querySelector('.yl[data-yl-interactive]');
   if (yl) initYearLine(yl);
 
+  /* ---------- Blog category filter (/blog/ only) ----------
+     Rows carry data-topics="|gamedev|coding|"; ?topic=gamedev in the URL is the
+     single source of truth, so filtered views can be shared, reloaded and
+     walked with back/forward. */
+  var topicFilter = document.querySelector('[data-topic-filter]');
+  if (topicFilter) initTopicFilter(topicFilter);
+
+  function initTopicFilter(root) {
+    var chips = Array.prototype.slice.call(root.querySelectorAll('a.topic[data-topic]'));
+    var known = chips.map(function (c) { return c.getAttribute('data-topic'); });
+    var rows = Array.prototype.slice.call(document.querySelectorAll('.post-list .post-row[data-topics]'));
+    var years = Array.prototype.slice.call(document.querySelectorAll('.year'));
+    var empty = document.querySelector('[data-topic-empty]');
+    var status = root.querySelector('[data-topic-status]');
+    var blogPath = new URL(chips[0].href, location.href).pathname;
+
+    function norm(t) { return (t || '').toLowerCase().split(/\s+/).filter(Boolean).join(' '); }
+    function fromUrl() {
+      var t = norm(new URLSearchParams(location.search).get('topic'));
+      return known.indexOf(t) > -1 ? t : '';
+    }
+    function apply(topic, announce) {
+      var shown = 0;
+      rows.forEach(function (row) {
+        var match = !topic || row.getAttribute('data-topics').indexOf('|' + topic + '|') > -1;
+        row.hidden = !match;
+        if (match) shown++;
+      });
+      years.forEach(function (y) { y.hidden = !y.querySelector('.post-row:not([hidden])'); });
+      chips.forEach(function (c) {
+        if (c.getAttribute('data-topic') === topic) c.setAttribute('aria-current', 'true');
+        else c.removeAttribute('aria-current');
+      });
+      if (empty) empty.hidden = shown > 0;
+      if (announce && status) {
+        status.textContent = topic
+          ? 'Showing ' + shown + (shown === 1 ? ' post' : ' posts') + ' in ' + topic + '.'
+          : 'Showing all ' + shown + ' posts.';
+      }
+    }
+    function go(topic) {
+      var url = blogPath + (topic ? '?topic=' + encodeURIComponent(topic) : '');
+      if (url !== location.pathname + location.search) history.pushState({ topic: topic }, '', url);
+      apply(topic, true);
+    }
+
+    // An unknown ?topic= falls back to All; either way the URL is tidied to
+    // the canonical form (e.g. "?topic=%20LIFE" becomes "?topic=life").
+    var initial = fromUrl();
+    var raw = new URLSearchParams(location.search).get('topic');
+    if (raw !== null && raw !== initial) {
+      history.replaceState(null, '', blogPath + (initial ? '?topic=' + encodeURIComponent(initial) : ''));
+    }
+    apply(initial, false);
+
+    // Chips, post labels and the "show all" link all filter in place on this page.
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[data-topic]');
+      if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      if (new URL(a.href, location.href).pathname !== blogPath) return;
+      var topic = norm(a.getAttribute('data-topic'));
+      if (topic && known.indexOf(topic) === -1) return;
+      e.preventDefault();
+      go(topic);
+    });
+    window.addEventListener('popstate', function () { apply(fromUrl(), true); });
+  }
+
   function initYearLine(nav) {
     var dataEl = nav.querySelector('.yl-data');
     var entries = [];

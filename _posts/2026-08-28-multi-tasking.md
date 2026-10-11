@@ -2,6 +2,8 @@
 title: Multi Tasking
 date: 2026-08-28
 layout: post
+topics:
+  - life
 ---
 Few days ago I saw the video on YouTube about the Study experiment on improving humans memory.  
 Researches trained the peoples on memorizing the sequence of digits, 8, 10, 20 and so on, untill they reached 100-110 I can't remember exact number, the trainees were able to memoryze up to 100+ digit sequences, but on the other tasks like memorizing letter, words they were still avarage.  

@@ -27,6 +27,11 @@ content:
         type: string
         default: post
         hidden: true
+      - name: topics
+        label: Categories (optional)
+        description: One category per row, for example coding, life, gamedev or project. Type a new name to start a new category; the blog gets a filter for it automatically. Capitals and extra spaces are ignored.
+        type: string
+        list: true
       - name: description
         label: Summary (optional)
         description: One or two sentences for the blog list and link previews. Leave empty to use the start of the post.

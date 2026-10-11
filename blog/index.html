@@ -4,6 +4,8 @@ title: Blog
 intro: Notes on game development, AI, studying, and whatever I'm figuring out this week.
 description: Every post on Abdulloh Shavkatjonov's blog, grouped by year.
 ---
+{% include topic-chips.html filter=true %}
+<p class="empty topic-empty" hidden data-topic-empty>No posts in this category yet. <a href="{{ '/blog/' | relative_url }}" data-topic="">Show all posts</a></p>
 {%- assign _years = site.posts | group_by_exp: "post", "post.date | date: '%Y'" -%}
 {%- for year in _years %}
 <section class="year" aria-labelledby="y{{ year.name }}">

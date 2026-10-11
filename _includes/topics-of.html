@@ -1,0 +1,19 @@
+{%- comment -%}
+  Normalises one post's `topics` (lowercase, trimmed, single spaces, no
+  duplicates) into _pt_str, e.g. "|gamedev|coding|", and _pt_list (array).
+  Usage: {% include topics-of.html post=post %}
+  `topics` is a custom key on purpose: Jekyll's category/categories keys
+  would change post URLs.
+{%- endcomment -%}
+{%- assign _pt_str = "|" -%}
+{%- assign _pt_raw = include.post.topics -%}
+{%- if _pt_raw -%}
+  {%- for _pt_item in _pt_raw -%}
+    {%- assign _pt_t = _pt_item | append: "" | downcase | replace: "|", " " | replace: "~", " " | replace: "^", " " | split: " " | join: " " -%}
+    {%- if _pt_t != "" -%}
+      {%- capture _pt_needle %}|{{ _pt_t }}|{% endcapture -%}
+      {%- unless _pt_str contains _pt_needle -%}{%- assign _pt_str = _pt_str | append: _pt_t | append: "|" -%}{%- endunless -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+{%- assign _pt_list = _pt_str | split: "|" | compact -%}

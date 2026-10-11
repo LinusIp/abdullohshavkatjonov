@@ -2,6 +2,9 @@
 title: Loading Scenes in Unity
 date: 2026-08-05
 layout: post
+topics:
+  - gamedev
+  - coding
 ---
 Loading Scenes in the Unity is pretty useful, and important because when I tried to make a Menu I needed a new scene, such as in the scene where my game is playing is already using for game.
 
