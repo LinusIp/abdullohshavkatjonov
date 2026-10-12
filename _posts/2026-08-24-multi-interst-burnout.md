@@ -4,6 +4,7 @@ date: 2026-08-24
 layout: post
 topics:
   - life
+cover: assets/Мастер на все руки, но не мастер ни в чём.png
 ---
 # Just think about it...
 
