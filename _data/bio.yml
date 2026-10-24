@@ -6,7 +6,7 @@ intro: "I study AI & Robotics, but most of what I know comes from building
   shooters, physics puzzles, a space simulator, browser games, and now
   localSpace, a local agent workspace written in Rust. Here I write about what
   I'm learning and keep a daily photo log."
-photo: me.jpg
+photo: assets/brand/avatar.png
 facts:
   - label: Studying
     value: BSc AI & Robotics, New Uzbekistan University, class of 2029

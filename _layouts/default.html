@@ -75,6 +75,10 @@
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 {% feed_meta %}
 <script src="{{ '/assets/js/main.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+{%- if content contains '<div class="language-plaintext highlighter-rouge">' %}
+{%- comment -%}Code written without a language: highlight.js auto-detection, only on pages that need it.{%- endcomment %}
+<script type="module" src="{{ '/assets/js/code-highlight.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+{%- endif %}
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>

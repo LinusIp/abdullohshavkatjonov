@@ -2,6 +2,7 @@
 title: Loading Scenes in Unity
 date: 2026-08-05
 layout: post
+reading_style: technical
 topics:
   - gamedev
 ---

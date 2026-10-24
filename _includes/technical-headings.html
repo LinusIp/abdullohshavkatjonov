@@ -1,0 +1,39 @@
+{%- comment -%}
+  For Technical posts. Reads the rendered post HTML and:
+  - adds an anchor link to every <h2>/<h3> (kramdown gives them ids),
+  - collects those headings for the "On this page" list.
+  Usage: {% include technical-headings.html html=_body %}
+  Sets _th_out (HTML with anchors), _th_toc (list items) and _th_n (count).
+  Only "<h2 id=" and "<h3 id=" are touched; any other "<h..." passes through.
+{%- endcomment -%}
+{%- assign _th_parts = include.html | split: "<h" -%}
+{%- assign _th_out = "" -%}
+{%- assign _th_toc = "" -%}
+{%- assign _th_n = 0 -%}
+{%- for _th_p in _th_parts -%}
+  {%- if forloop.first -%}{%- assign _th_out = _th_p -%}{%- continue -%}{%- endif -%}
+  {%- assign _th_lvl = _th_p | slice: 0 -%}
+  {%- assign _th_is = false -%}
+  {%- if _th_lvl == "2" or _th_lvl == "3" -%}
+    {%- assign _th_head = _th_p | slice: 1, 5 -%}
+    {%- if _th_head == ' id="' -%}{%- assign _th_is = true -%}{%- endif -%}
+  {%- endif -%}
+  {%- if _th_is -%}
+    {%- assign _th_tmp = _th_p | split: 'id="' -%}
+    {%- assign _th_id = _th_tmp[1] | split: '"' | first -%}
+    {%- assign _th_open = _th_lvl | append: ' id="' | append: _th_id | append: '">' -%}
+    {%- assign _th_close = "</h" | append: _th_lvl | append: ">" -%}
+    {%- assign _th_after = _th_p | remove_first: _th_open -%}
+    {%- assign _th_tmp = _th_after | split: _th_close -%}
+    {%- assign _th_inner = _th_tmp[0] -%}
+    {%- assign _th_rest = _th_after | remove_first: _th_inner | remove_first: _th_close -%}
+    {%- assign _th_plain = _th_inner | strip_html | strip -%}
+    {%- capture _th_chunk -%}<h{{ _th_open }}{{ _th_inner }}<a class="heading-anchor" href="#{{ _th_id }}" aria-label="Link to this section: {{ _th_plain | escape }}">#</a>{{ _th_close }}{{ _th_rest }}{%- endcapture -%}
+    {%- assign _th_out = _th_out | append: _th_chunk -%}
+    {%- capture _th_item -%}<li class="toc__item toc__item--h{{ _th_lvl }}"><a href="#{{ _th_id }}">{{ _th_plain | escape }}</a></li>{%- endcapture -%}
+    {%- assign _th_toc = _th_toc | append: _th_item -%}
+    {%- assign _th_n = _th_n | plus: 1 -%}
+  {%- else -%}
+    {%- assign _th_out = _th_out | append: "<h" | append: _th_p -%}
+  {%- endif -%}
+{%- endfor -%}
