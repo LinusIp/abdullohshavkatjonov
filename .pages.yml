@@ -32,6 +32,17 @@ content:
         description: One category per row, for example coding, life, gamedev or project. Type a new name to start a new category; the blog gets a filter for it automatically. Capitals and extra spaces are ignored.
         type: string
         list: true
+      - name: reading_style
+        label: Reading style
+        description: Essay is the normal layout. Technical widens code blocks, tables and images, adds a link to every heading, and shows an "On this page" list when the post has 3 or more headings.
+        type: select
+        default: essay
+        options:
+          values:
+            - label: Essay
+              value: essay
+            - label: Technical
+              value: technical
       - name: description
         label: Summary (optional)
         description: One or two sentences for the blog list and link previews. Leave empty to use the start of the post.

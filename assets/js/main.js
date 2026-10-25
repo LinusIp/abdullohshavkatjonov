@@ -163,6 +163,106 @@
   var yl = document.querySelector('.yl[data-yl-interactive]');
   if (yl) initYearLine(yl);
 
+  /* ---------- Code blocks: language label and Copy button ---------- */
+  var LANG_NAMES = {
+    csharp: 'C#', cs: 'C#', cpp: 'C++', c: 'C', python: 'Python', py: 'Python',
+    javascript: 'JavaScript', js: 'JavaScript', typescript: 'TypeScript', ts: 'TypeScript',
+    rust: 'Rust', rs: 'Rust', bash: 'Bash', sh: 'Shell', shell: 'Shell', console: 'Shell',
+    json: 'JSON', yaml: 'YAML', yml: 'YAML', html: 'HTML', xml: 'HTML', css: 'CSS',
+    java: 'Java', go: 'Go', sql: 'SQL', markdown: 'Markdown', md: 'Markdown'
+  };
+  function langLabel(lang) {
+    if (!lang || lang === 'plaintext' || lang === 'text' || lang === 'plain') return '';
+    return LANG_NAMES[lang] || lang;
+  }
+  window.siteCode = {
+    setLanguage: function (block, lang) {
+      var label = block.querySelector('.code-block__lang');
+      if (label) label.textContent = langLabel(lang);
+      var pre = block.querySelector('pre');
+      if (pre && pre.hasAttribute('tabindex')) pre.setAttribute('aria-label', (langLabel(lang) || 'Code') + ' block');
+    }
+  };
+
+  // Clipboard API first; if it is missing or refused, the older execCommand route.
+  function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      return navigator.clipboard.writeText(text).catch(function () { return legacyCopy(text); });
+    }
+    return legacyCopy(text);
+  }
+  function legacyCopy(text) {
+    return new Promise(function (resolve, reject) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.cssText = 'position:fixed;top:0;left:-9999px;opacity:0';
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand('copy'); } catch (err) { ok = false; }
+      document.body.removeChild(ta);
+      if (ok) resolve(); else reject(new Error('copy unavailable'));
+    });
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.prose div.highlighter-rouge, .prose > pre'), function (block) {
+    if (block.tagName === 'PRE') { // a bare <pre>: wrap it so it gets the same chrome
+      var wrap = document.createElement('div');
+      wrap.className = 'highlighter-rouge';
+      block.parentNode.insertBefore(wrap, block);
+      wrap.appendChild(block);
+      block = wrap;
+    }
+    var pre = block.querySelector('pre');
+    var code = pre.querySelector('code') || pre;
+    var match = /(?:^|\s)language-(\S+)/.exec(block.className);
+    var bar = document.createElement('div');
+    bar.className = 'code-block__bar';
+    var label = document.createElement('span');
+    label.className = 'code-block__lang';
+    label.textContent = langLabel(match && match[1]);
+    var button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'code-block__copy';
+    button.textContent = 'Copy';
+    var status = document.createElement('span');
+    status.className = 'visually-hidden';
+    status.setAttribute('aria-live', 'polite');
+    bar.appendChild(label); bar.appendChild(button); bar.appendChild(status);
+    block.insertBefore(bar, block.firstChild);
+
+    // Wide code scrolls inside the block; make that region reachable by keyboard.
+    if (pre.scrollWidth > pre.clientWidth + 1) {
+      pre.setAttribute('tabindex', '0');
+      pre.setAttribute('role', 'region');
+      pre.setAttribute('aria-label', (langLabel(match && match[1]) || 'Code') + ' block');
+    }
+
+    var timer;
+    button.addEventListener('click', function () {
+      var text = code.textContent.replace(/\n$/, '');
+      copyText(text).then(function () {
+        button.textContent = 'Copied';
+        status.textContent = 'Code copied to clipboard';
+      }, function () {
+        // No clipboard access: select the code so it can be copied by hand.
+        var range = document.createRange();
+        range.selectNodeContents(code);
+        var sel = window.getSelection();
+        sel.removeAllRanges(); sel.addRange(range);
+        button.textContent = 'Press Ctrl+C';
+        status.textContent = 'Copying is not available here. The code is selected; press Control C or Command C to copy it.';
+      });
+      clearTimeout(timer);
+      timer = setTimeout(function () { button.textContent = 'Copy'; status.textContent = ''; }, 2000);
+    });
+  });
+
+  /* ---------- Technical posts: "On this page" collapses on narrow screens ---------- */
+  var toc = document.querySelector('.toc details');
+  if (toc && window.matchMedia && !window.matchMedia('(min-width: 75rem)').matches) toc.open = false;
+
   /* ---------- Blog category filter (/blog/ only) ----------
      Rows carry data-topics="|gamedev|coding|"; ?topic=gamedev in the URL is the
      single source of truth, so filtered views can be shared, reloaded and

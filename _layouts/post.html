@@ -14,7 +14,15 @@ layout: default
   | replace: 'href="assets/', 'href="ASSETS_ROOT'
   | replace: 'ASSETS_ROOT', _assets
   | replace: '<img ', '<img loading="lazy" decoding="async" ' -%}
-<article class="wrap post" itemscope itemtype="https://schema.org/BlogPosting">
+{%- comment -%}Reading style: posts without the field are Essay, exactly as before.{%- endcomment -%}
+{%- assign _technical = false -%}
+{%- assign _th_n = 0 -%}
+{%- if page.reading_style == "technical" -%}
+  {%- assign _technical = true -%}
+  {%- include technical-headings.html html=_body -%}
+  {%- assign _body = _th_out -%}
+{%- endif -%}
+<article class="wrap post{% if _technical %} post--technical{% if _th_n >= 3 %} post--has-toc{% endif %}{% endif %}" itemscope itemtype="https://schema.org/BlogPosting">
   <header class="post-header">
     <a class="back-link meta" href="{{ '/blog/' | relative_url }}">{% include icon.html name="arrow-left" %}All posts</a>
     <div class="post-meta">
@@ -23,6 +31,14 @@ layout: default
     </div>
     <h1 class="post-title" itemprop="headline">{{ page.title | escape }}</h1>
   </header>
+  {%- if _technical and _th_n >= 3 %}
+  <nav class="toc" aria-labelledby="toc-title">
+    <details open>
+      <summary id="toc-title" class="meta">On this page</summary>
+      <ol class="toc__list">{{ _th_toc }}</ol>
+    </details>
+  </nav>
+  {%- endif %}
   <div class="prose" itemprop="articleBody">
 {{ _body }}
   </div>
