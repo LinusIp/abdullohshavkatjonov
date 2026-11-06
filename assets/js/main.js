@@ -429,7 +429,8 @@
           el = document.createElement('i');
         }
         if (dayIso > todayIso) el.classList.add('f');
-        else if (dayIso === todayIso) el.classList.add('t');
+        else if (dayIso === todayIso) { el.classList.add('t'); el.setAttribute('data-motion-today', ''); }
+        el.setAttribute('data-motion-tick', ''); // hooks for seasons-motion.js year-line moments
         seg.appendChild(el);
       }
       track.innerHTML = '';
@@ -568,3 +569,4 @@
     render(thisYear);
   }
 })();
+if (window.SeasonMotion) SeasonMotion.auto();

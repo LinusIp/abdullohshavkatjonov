@@ -3,13 +3,16 @@ layout: default
 ---
 {%- assign bio = site.data.bio -%}
 {%- if bio.photo contains "://" -%}{%- assign _photo = bio.photo -%}{%- else -%}{%- assign _photo = bio.photo | relative_url -%}{%- endif -%}
+{%- comment -%}The motion host: assets/js/seasons-motion.js draws its canvas behind
+  the bio and the year line. Without JavaScript nothing here changes.{%- endcomment %}
+<div class="hero" data-season-motion>
 <section class="wrap bio" aria-labelledby="bio-name">
   {%- if bio.photo %}
   <figure class="bio__photo">
     <img src="{{ _photo }}" alt="Avatar of {{ bio.name }}" width="128" height="128" decoding="async" fetchpriority="high">
   </figure>
   {%- endif %}
-  <div class="bio__text">
+  <div class="bio__text" data-motion-avoid>
     <h1 class="bio__name" id="bio-name">{{ bio.name }}</h1>
     <p class="bio__tagline">{{ bio.tagline }}</p>
     <p class="bio__intro">{{ bio.intro }}</p>
@@ -30,6 +33,7 @@ layout: default
 
 <div class="wrap year-line">
   {% include year-line.html interactive=true %}
+</div>
 </div>
 
 <section class="wrap section" aria-labelledby="writing">
