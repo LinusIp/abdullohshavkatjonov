@@ -30,7 +30,7 @@
   var DEPTH_WIND = [0.70, 0.85, 1.00];
   var PREWARM = 60;                       // s simulated before the first frame
   var PAGE_FADE = 1.2;                    // s, whole canvas fades in
-  var REF_AREA = 1100 * 460;              // field size the counts were tuned for
+  var REF_AREA = 2560 * 960;              // field size the counts were tuned for (site: was 1100 * 460; see PR)
   var AVOID_FLOOR = 0.15, AVOID_FEATHER = 24;
   var DT_MAX = 0.05;                      // s, clamp after long frames
   var TRACE_DT = 0.75, TRACE_WIN = 24;    // plate exposure interval and window
