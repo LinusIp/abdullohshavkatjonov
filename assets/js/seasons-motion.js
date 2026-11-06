@@ -518,8 +518,10 @@
       } else if (!go && running) {
         running = false;
         if (raf) { root.cancelAnimationFrame(raf); raf = 0; }
-        if (reducedMotion() || readPref() === 'off') { canvas.style.opacity = '0'; shownOpacity = 0; }
       }
+      // Off or reduced motion hides the canvas even when the loop was already paused (hero
+      // off-screen, tab hidden), so no frozen frame is left behind. (site fix; see PR)
+      if (!go && (reducedMotion() || readPref() === 'off')) { canvas.style.opacity = '0'; shownOpacity = 0; }
     }
 
     var io = 'IntersectionObserver' in root ? new IntersectionObserver(function (e) {
@@ -633,6 +635,9 @@
     if (btn) {
       btn.addEventListener('click', function () { if (readPref() === 'off') m.play(); else m.pause(); label(); });
       label();
+      // The label follows the system reduced-motion setting while the page is open. (site fix; see PR)
+      var rm = root.matchMedia ? root.matchMedia('(prefers-reduced-motion: reduce)') : null;
+      if (rm && rm.addEventListener) rm.addEventListener('change', label);
     }
     var go = function () {
       moment(season, { ticks: host.querySelectorAll('[data-motion-tick]'), today: host.querySelector('[data-motion-today]') });
