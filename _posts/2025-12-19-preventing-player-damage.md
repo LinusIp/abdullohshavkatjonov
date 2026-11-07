@@ -5,7 +5,7 @@ layout: post
 topics:
   - gamedev
 reading_style: technical
-description: "To protect Player from damage we need to give a shield.\nSo I added a new PowerUp which is a Shield_PowerUp"
+description: "To protect Player from damage we need to give a shield. So I added a new PowerUp which is a Shield_PowerUp"
 medium_url: https://medium.com/@250503_98463/preventing-player-damage-1c655ee70860
 ---
 To protect Player from damage we need to give a shield. So I added a new PowerUp which is a Shield\_PowerUp

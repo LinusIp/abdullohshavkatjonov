@@ -5,7 +5,7 @@ layout: post
 topics:
   - gamedev
 reading_style: technical
-description: "I got few PowerUp’s like Speed powerup, Tripleshot powerup, and Speed powerup.\nTo be able to use all this powerup’s I need ed to know with…"
+description: "I got few PowerUp’s like Speed powerup, Tripleshot powerup, and Speed powerup. To be able to use all this powerup’s I need ed to know with…"
 medium_url: https://medium.com/@250503_98463/creating-modular-powerup-systems-65b7087699f9
 ---
 I got few PowerUp’s like Speed powerup, Tripleshot powerup, and Speed powerup. To be able to use all this powerup’s I need ed to know with which one I’m colliding with, so I created a variable named “powerupID”.

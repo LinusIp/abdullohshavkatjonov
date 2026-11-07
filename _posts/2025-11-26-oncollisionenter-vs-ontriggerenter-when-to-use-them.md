@@ -1,12 +1,12 @@
 ---
-title: "OnCollisionEnter Vs. OnTriggerEnter — When to use them?"
+title: "OnCollisionEnter Vs. OnTriggerEnter — When to use them?"
 date: 2025-11-26 14:31:25 +0000
 layout: post
 topics:
   - gamedev
   - coding
 reading_style: essay
-description: "First when we use OnCollisionEnter and why it needed?\nSo basically we use OnCollisionEnter when objects should physically bump into each…"
+description: "First when we use OnCollisionEnter and why it needed? So basically we use OnCollisionEnter when objects should physically bump into each…"
 medium_url: https://medium.com/@250503_98463/oncollisionenter-vs-ontriggerenter-when-to-use-them-56f76bda0f97
 ---
 First when we use OnCollisionEnter and why it needed? So basically we use OnCollisionEnter when objects should physically bump into each other.

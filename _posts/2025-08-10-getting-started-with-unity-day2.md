@@ -1,11 +1,11 @@
 ---
-title: "Getting started with Unity”Day2”"
+title: "Getting started with Unity ”Day2”"
 date: 2025-08-10 18:53:46 +0000
 layout: post
 topics:
   - gamedev
 reading_style: technical
-description: "Today I’m going through creating project in Unity.\nFirst of all we must to open Unity and go to Projects,"
+description: "Today I’m going through creating project in Unity. First of all we must to open Unity and go to Projects,"
 medium_url: https://medium.com/@250503_98463/getting-started-with-unity-day2-e9d097679875
 ---
 Today I’m going through creating project in Unity. First of all we must to open Unity and go to Projects,

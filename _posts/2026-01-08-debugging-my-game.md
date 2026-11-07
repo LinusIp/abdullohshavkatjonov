@@ -6,7 +6,7 @@ topics:
   - gamedev
   - coding
 reading_style: essay
-description: "So, the most interesting and brain storming part came, as you can see there is a bunch of glitch time mismatch and more.\nSo in the next…"
+description: "So, the most interesting and brain storming part came, as you can see there is a bunch of glitch time mismatch and more. So in the next…"
 medium_url: https://medium.com/@250503_98463/debugging-my-game-157c3e302728
 ---
 ![Picture from this post](https://cdn-images-1.medium.com/max/800/1*TGT5WTD8qwOvM6eVMryKOg.gif)

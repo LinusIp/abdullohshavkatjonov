@@ -9,7 +9,7 @@ reading_style: technical
 description: "“I don’t was able to write any posts almost a month, because of University exam and now we finished our exams and came back to writing…"
 medium_url: https://medium.com/@250503_98463/gamedev-day-13-variables-5e5d922f69d1
 ---
-“I don’t was able to write any posts almost a month, because of University exam and now we finished our exams and came back to writing posts and diving into GameDev, thanks for understanding”
+“I don’t was able to write any posts almost a month, because of University exam and now we finished our exams and came back to writing posts and diving into GameDev, thanks for understanding ”
 
 **Variables — there is the two types of variables “Public and Private”.**
 

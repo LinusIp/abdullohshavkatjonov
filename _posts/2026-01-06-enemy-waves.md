@@ -5,7 +5,7 @@ layout: post
 topics:
   - gamedev
 reading_style: technical
-description: "Now I added an enemy wave in my game.\nFirst I created variables what I need, _firstWave for first wave, _incrementWaveBy to calculate…"
+description: "Now I added an enemy wave in my game. First I created variables what I need, _firstWave for first wave, _incrementWaveBy to calculate…"
 medium_url: https://medium.com/@250503_98463/enemy-waves-618c5236448d
 ---
 Now I added an enemy wave in my game. First I created variables what I need, \_firstWave for first wave, \_incrementWaveBy to calculate enemies in the next waves, and \_currentWave to know which leve is now to calculate the numbers of enemies for current wave.

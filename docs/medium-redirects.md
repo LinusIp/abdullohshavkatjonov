@@ -5,7 +5,7 @@ Use these as the canonical link on each Medium story, so search engines credit t
 | Title | Date | Medium | New URL |
 |---|---|---|---|
 | Day one of learning GameDev | 2025-08-09 | https://medium.com/@250503_98463/day-one-of-learning-gamedev-1421c25d34f2 | https://linusip.github.io/abdullohshavkatjonov/2025/08/09/day-one-of-learning-gamedev.html |
-| Getting started with Unity”Day2” | 2025-08-10 | https://medium.com/@250503_98463/getting-started-with-unity-day2-e9d097679875 | https://linusip.github.io/abdullohshavkatjonov/2025/08/10/getting-started-with-unityday2.html |
+| Getting started with Unity ”Day2” | 2025-08-10 | https://medium.com/@250503_98463/getting-started-with-unity-day2-e9d097679875 | https://linusip.github.io/abdullohshavkatjonov/2025/08/10/getting-started-with-unity-day2.html |
 | Day 3 of GameDev | 2025-08-14 | https://medium.com/@250503_98463/day-3-of-gamedev-8919eeffc239 | https://linusip.github.io/abdullohshavkatjonov/2025/08/14/day-3-of-gamedev.html |
 | GameDev(Day: 4, 5, 6) | 2025-08-28 | https://medium.com/@250503_98463/gamedev-day-4-5-6-dd0bbd813d13 | https://linusip.github.io/abdullohshavkatjonov/2025/08/28/gamedev-day-4-5-6.html |
 | GameDev day 7 | 2025-09-18 | https://medium.com/@250503_98463/gamedev-day-7-5e7730d5fdc9 | https://linusip.github.io/abdullohshavkatjonov/2025/09/18/gamedev-day-7.html |
@@ -19,7 +19,7 @@ Use these as the canonical link on each Medium story, so search engines credit t
 | Instantiating & Destroying Gameobjects in Unity | 2025-11-24 | https://medium.com/@250503_98463/instantiating-destroying-gameobjects-in-unity-b12dd08c8b84 | https://linusip.github.io/abdullohshavkatjonov/2025/11/24/instantiating-destroying-gameobjects-in-unity.html |
 | Why you need to be writing pseudo code? | 2025-11-24 | https://medium.com/@250503_98463/why-you-need-to-be-writing-pseudo-code-0376d21c8988 | https://linusip.github.io/abdullohshavkatjonov/2025/11/24/why-you-need-to-be-writing-pseudo-code.html |
 | Creating A Cooldown System in Unity | 2025-11-25 | https://medium.com/@250503_98463/creating-a-cooldown-system-in-unity-b9b591c3a3bd | https://linusip.github.io/abdullohshavkatjonov/2025/11/25/creating-a-cooldown-system-in-unity.html |
-| OnCollisionEnter Vs. OnTriggerEnter — When to use them? | 2025-11-26 | https://medium.com/@250503_98463/oncollisionenter-vs-ontriggerenter-when-to-use-them-56f76bda0f97 | https://linusip.github.io/abdullohshavkatjonov/2025/11/26/oncollisionenter-vs-ontriggerenter-when-to-use-them.html |
+| OnCollisionEnter Vs. OnTriggerEnter — When to use them? | 2025-11-26 | https://medium.com/@250503_98463/oncollisionenter-vs-ontriggerenter-when-to-use-them-56f76bda0f97 | https://linusip.github.io/abdullohshavkatjonov/2025/11/26/oncollisionenter-vs-ontriggerenter-when-to-use-them.html |
 | Script Communication in Unity using GetComponent | 2025-11-27 | https://medium.com/@250503_98463/script-communication-in-unity-using-getcomponent-0d52c773fd40 | https://linusip.github.io/abdullohshavkatjonov/2025/11/27/script-communication-in-unity-using-getcomponent.html |
 | Coroutines with Unity!’ | 2025-11-30 | https://medium.com/@250503_98463/coroutines-with-unity-f1b9ce4f554c | https://linusip.github.io/abdullohshavkatjonov/2025/11/30/coroutines-with-unity.html |
 | Spawning Objects in Unity without the Clutter | 2025-11-30 | https://medium.com/@250503_98463/spawning-objects-in-unity-without-the-clutter-c6cfc7569634 | https://linusip.github.io/abdullohshavkatjonov/2025/11/30/spawning-objects-in-unity-without-the-clutter.html |

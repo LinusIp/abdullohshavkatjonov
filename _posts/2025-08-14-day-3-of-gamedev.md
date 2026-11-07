@@ -5,10 +5,10 @@ layout: post
 topics:
   - gamedev
 reading_style: essay
-description: "“I wasn’t able to write last three days so the 4th 5th and 6th days will be in one post”"
+description: "“I wasn’t able to write last three days so the 4th 5th and 6th days will be in one post ”"
 medium_url: https://medium.com/@250503_98463/day-3-of-gamedev-8919eeffc239
 ---
-“I wasn’t able to write last three days so the 4th 5th and 6th days will be in one post”
+“I wasn’t able to write last three days so the 4th 5th and 6th days will be in one post ”
 
 Today we are going to customize our workspace up to us.
 
