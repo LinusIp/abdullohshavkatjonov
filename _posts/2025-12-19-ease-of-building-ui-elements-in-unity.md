@@ -30,7 +30,7 @@ using TMPro;
 
 In addition to default libraries I use “UnityEngine.UI” and “TMPro” to be able to work with UI in unity.
 
-Then I created a variable called **\_scoreText** to work with text in code.
+Then I created a variable called `_scoreText` to work with text in code.
 
 ```csharp
 [SerializeField]

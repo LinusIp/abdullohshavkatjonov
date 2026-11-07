@@ -10,7 +10,7 @@ medium_url: https://medium.com/@250503_98463/how-to-play-sound-effects-in-unity-
 ---
 Now I need to add the sound for PowerUp’s, to make this I use PlayClipAtPoint, why? because it helps to play sound at given point in my case it is when the Player collects a PowerUp.
 
-For this I created a variable \_clip and with \[SerializeField\] make it so I can work with in the Inspector.
+For this I created a variable `_clip` and with \[SerializeField\] make it so I can work with in the Inspector.
 
 ![Picture from this post](https://cdn-images-1.medium.com/max/800/1*pwPwCvhbYmAyABGuEMS09w.png)
 
@@ -56,7 +56,7 @@ Here is the logic for our powerup’s colliding with the player and when it coll
 
 ![Picture from this post](https://cdn-images-1.medium.com/max/800/1*gI5u_nVUgLAT1MEpDsKs9w.png)
 
-By this I’m telling that play this \_clip to which assigned our power\_up\_sound at the position of our Player, basically when it reaches the position of our Player.
+By this I’m telling that play this `_clip` to which assigned our power\_up\_sound at the position of our Player, basically when it reaches the position of our Player.
 
 And that’s all, thanks for your attention, and as always don’t forget to follow me in other social media platforms too
 

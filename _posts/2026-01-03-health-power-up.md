@@ -24,13 +24,13 @@ Here I expanded our list of power up’s and added one more case in switch state
 
 ![Picture from this post](https://cdn-images-1.medium.com/max/800/1*flyfn9OszXILpM03smwQmA.png)
 
-The next step was the logic of the Health powerup itself how it will work and what it will do? Well it must give an extra life which means id must add 1 to our \_lives variable, simlpe right?
+The next step was the logic of the Health powerup itself how it will work and what it will do? Well it must give an extra life which means id must add 1 to our `_lives` variable, simlpe right?
 
 Yep, it is so here is the method for it
 
 ![Picture from this post](https://cdn-images-1.medium.com/max/800/1*11peX0HT5gtX1lx-GfJ3xQ.png)
 
-When we clash with it and when we call it it just adds one to \_lives variable and thats all and thats how I got an extra life powerup, the loved one of most players
+When we clash with it and when we call it it just adds one to `_lives` variable and thats all and thats how I got an extra life powerup, the loved one of most players
 
 So that was all for now and as always thanks for your attention and don’t forget to follow me in other social media platforms
 

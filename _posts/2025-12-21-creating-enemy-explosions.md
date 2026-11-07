@@ -22,11 +22,11 @@ After I got the right animation I opened Animator window by clicking the Enemy a
 
 And then I created an empty animation to make sure that the enemies won’t explode right after spawning and then I made a transition to the explosion animation of enemy, afther which I created a Trigger parametr OnEnemyDeath which will help to work with this animation.
 
-So then I created a variable \_anim to work with animation inside of Enemy.cs script
+So then I created a variable `_anim` to work with animation inside of Enemy.cs script
 
 ![Picture from this post](https://cdn-images-1.medium.com/max/800/1*BEfBP6lpo26oQAvNGqIuNg.png)
 
-and then to avoid calling Animator each time I called it at the beginning of our script in th **void Start()** function
+and then to avoid calling Animator each time I called it at the beginning of our script in th `void Start()` function
 
 ![Picture from this post](https://cdn-images-1.medium.com/max/800/1*Ukd3ax8IIIvMJILwhss6wA.png)
 

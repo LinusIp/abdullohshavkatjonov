@@ -9,7 +9,7 @@ medium_url: https://medium.com/@250503_98463/simple-player-movement-in-unity-a76
 ---
 “Simple Player movement in Unity — with using this we can get input from user and based on in put we can move our character.”
 
-So first of all we need to create a variable of speed and set to it a value, so our variable will be “\_speed” and it’s value will be 3.5, but why we wrote 3.5f, so as you see the type of our variable is float and therefore we wrote or add “f” at the end of our value.
+So first of all we need to create a variable of speed and set to it a value, so our variable will be “`_speed`” and it’s value will be 3.5, but why we wrote 3.5f, so as you see the type of our variable is float and therefore we wrote or add “f” at the end of our value.
 
 ```csharp
 using System.Collections;
@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
 }
 ```
 
-In code space above you can se a full code of this user input and action taking based on this input, so what we are doing, we are getting a value from user and multiplying it by “Vector3.up” which is the upward coordinate of our character multiplied by “horizontalInput/verticalInput” which are the inputs from user multiplied by “\_speed” which is a variable whicc contains a value of speed on what we will move multiplied by “Time.deltaTime” which is the time in seconds. So we are getting all values and after making a mathematical calculation getting a new coordinate of our character.
+In code space above you can se a full code of this user input and action taking based on this input, so what we are doing, we are getting a value from user and multiplying it by “Vector3.up” which is the upward coordinate of our character multiplied by “horizontalInput/verticalInput” which are the inputs from user multiplied by “`_speed`” which is a variable whicc contains a value of speed on what we will move multiplied by “Time.deltaTime” which is the time in seconds. So we are getting all values and after making a mathematical calculation getting a new coordinate of our character.
 
 So this was all for today, thanks for reading, hope it will be useful to you guys and pls also dom’t forget to follow me on other social platforms too
 

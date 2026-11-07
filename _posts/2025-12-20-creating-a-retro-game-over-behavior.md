@@ -16,7 +16,7 @@ The answer is simple, first I created a new text inside Canvas and created a new
 
 ![Picture from this post](https://cdn-images-1.medium.com/max/800/1*q3Gy9IcbWHCYAHsnX3Z0Iw.png)
 
-So after creating a new variable **\_gameOverText** I need to attach it to Canvas .
+So after creating a new variable `_gameOverText` I need to attach it to Canvas .
 
 ![Picture from this post](https://cdn-images-1.medium.com/max/800/1*mviR9htOaCv-kKfQrbrL9w.gif)
 

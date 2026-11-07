@@ -18,7 +18,7 @@ So first I expanded my l expanded my list of power up’s so that there will be 
 
 ![Picture from this post](https://cdn-images-1.medium.com/max/800/1*ggqmkFhHMNynv-x5mW490Q.png)
 
-Here’s the logic of the Negative PowerUp, first when it called(when collided with Player) it sets the \_isNegativePowerUpActive to true which means we collided with it or we collected it, it will substract 2 from our current speed
+Here’s the logic of the Negative PowerUp, first when it called(when collided with Player) it sets the `_isNegativePowerUpActive` to true which means we collided with it or we collected it, it will substract 2 from our current speed
 
 ![Picture from this post](https://cdn-images-1.medium.com/max/800/1*tqLfCbVLIWN4hlh9iSNURg.png)
 

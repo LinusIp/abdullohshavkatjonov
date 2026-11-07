@@ -23,7 +23,7 @@ I wanted to move the player at an increased rate when the ‘Left Shift’ key i
         }
 ```
 
-So what this logic does, basically when we press LeftShift key it multiplies our speed by 2, and when we release the LeftShift key it devides \_speed variable by 2, which means it resets \_speed back to normal and like this I got a new feature.
+So what this logic does, basically when we press LeftShift key it multiplies our speed by 2, and when we release the LeftShift key it devides `_speed` variable by 2, which means it resets `_speed` back to normal and like this I got a new feature.
 
 ![Picture from this post](https://cdn-images-1.medium.com/max/800/1*YrdoxwGHC1WH-Z5KmTEqeg.png)
 

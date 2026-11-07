@@ -11,7 +11,7 @@ medium_url: https://medium.com/@250503_98463/instantiating-destroying-gameobject
 ---
 ## Instantiating
 
-To instantiate an object we need to choose which object we will instantiate in our case it is a laser and create a variable GameObject and we can call it “\_laserPrefab”.
+To instantiate an object we need to choose which object we will instantiate in our case it is a laser and create a variable GameObject and we can call it “`_laserPrefab`”.
 
 ```csharp
 void Update()
@@ -20,7 +20,7 @@ void Update()
 }
 ```
 
-So in first argument we will write the name of object what we want to Instantiate and in second argument we need to write the in which position we want it to be **transform.position** means it spawns in position where our object stands and finally in third argument we need to write how we want it to rotate in our case it is ( 0, 0, 0) which means no rotation.
+So in first argument we will write the name of object what we want to Instantiate and in second argument we need to write the in which position we want it to be `transform.position` means it spawns in position where our object stands and finally in third argument we need to write how we want it to rotate in our case it is ( 0, 0, 0) which means no rotation.
 
 ## Destroing GameObject
 
@@ -33,7 +33,7 @@ void Update()
 }
 ```
 
-To destroy GameObjects in Unity we use command “**Destroy(gameObject);”**
+To destroy GameObjects in Unity we use command “`Destroy(gameObject);`”
 
 We are using “**this**” in **“Destroy”** because we are destoing the object which attached to this Script in what we’re working on.
 

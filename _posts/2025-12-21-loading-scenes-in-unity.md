@@ -19,9 +19,9 @@ No, worries in reality i was way more easier than I thought at the beginning.
 
 First I created a new scene — after that I saved it in Scenes folder and opened a Building Settings from here I can sae a scenes what I have and then I press **add open scene** button and it adds it to scenes with number attached to it which is its we can say order or ID with what we will work when we are loading scenes.
 
-After that I created a new script for a new scene which is a **MainMenu.cs** to load other scenes.
+After that I created a new script for a new scene which is a `MainMenu.cs` to load other scenes.
 
-Now I write a new public function **LoadGame()** to load other scenes, and here with using a **SceneManger** I’m loading the needed scene with **LoadScene().**
+Now I write a new public function `LoadGame()` to load other scenes, and here with using a **SceneManger** I’m loading the needed scene with `LoadScene()`.
 
 ![Picture from this post](https://cdn-images-1.medium.com/max/800/1*s6yVqXrwlosrLMomkT4u5w.png)
 
@@ -37,7 +37,7 @@ using UnityEngine.SceneManager;
 
 ![Picture from this post](https://cdn-images-1.medium.com/max/800/1*ODhFjqPY6WkuaQMpGPBoNw.png)
 
-And then I created a new button and then I added a new **OnClick()** action in inspector and from there I attach the **Canvas** to the **OnClick()** and once I attached I can choose the function it will call from here I go to **MainMenu** script and call **LoadGame()** function, why I attached the **Canvas**, well because the Main menu script is the component of the **Canvas** and I can use its functions and call them on some action, like clicking on button as in our case.
+And then I created a new button and then I added a new `OnClick()` action in inspector and from there I attach the **Canvas** to the `OnClick()` and once I attached I can choose the function it will call from here I go to **MainMenu** script and call `LoadGame()` function, why I attached the **Canvas**, well because the Main menu script is the component of the **Canvas** and I can use its functions and call them on some action, like clicking on button as in our case.
 
 ![Picture from this post](https://cdn-images-1.medium.com/max/800/1*O18zGejIliTnnSlvPm7Jcw.gif)
 

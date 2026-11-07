@@ -46,7 +46,7 @@ This is the logic of damaging player and we need to create a logic for shield.
         }
 ```
 
-Here I added shield logic, first it checks wheter our player got shield or not, then it will set the value of **\_isShieldActive** to false, because we can use one shield only one time, and after that it returns basically says stop. so why it works it works because the demage method will be called each time when we crash with enemy so in the first time when we crash with enemy it does nothing just says “now we don’t have a shield” and the next time when we hit enemy it says do we have a shield, which we don’t and takes one of our lives.
+Here I added shield logic, first it checks wheter our player got shield or not, then it will set the value of `_isShieldActive` to false, because we can use one shield only one time, and after that it returns basically says stop. so why it works it works because the demage method will be called each time when we crash with enemy so in the first time when we crash with enemy it does nothing just says “now we don’t have a shield” and the next time when we hit enemy it says do we have a shield, which we don’t and takes one of our lives.
 
 ![Picture from this post](https://cdn-images-1.medium.com/max/800/1*DrLD_vqtmGKZpVIppx0ACA.gif)
 
