@@ -14,11 +14,19 @@ So how actually it works and how we also can do it?
 
 The answer is simple, first I created a new text inside Canvas and created a new variavle in code with \[SerializeField\] to be able to work with it in inspector.
 
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*q3Gy9IcbWHCYAHsnX3Z0Iw.png)
+
 So after creating a new variable **\_gameOverText** I need to attach it to Canvas .
+
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*mviR9htOaCv-kKfQrbrL9w.gif)
 
 After that I made it so it will be diactivated at the beginning the game inside of void Start()
 
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*ftat5qP7XkqTPhFSLqIAaw.png)
+
 then I need a logic how it will flicker, so for this I created a coroutine
+
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*CjRtansjA8UDehK0RvSQUA.png)
 
 and inside of this coroutine I write a infinite loop to flicker the text,
 

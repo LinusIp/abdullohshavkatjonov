@@ -14,6 +14,8 @@ Build the UI elements in Unity is pretty easy, it’s like a working with text e
 
 So first I created Canvass to control all UI elements to make so I right clicked to Hierarchy and choose UI → Text-TextMeshPro.
 
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*epcAfePrBpPO1pS2Zo2a0w.gif)
+
 Then you can edit the text as you want change the color, size, and more.
 
 And we also can work with it with code for this we need to comunicate with UIManager.
@@ -37,7 +39,11 @@ private TMP_Text _scoreText;
 
 Why \[SerializeField\], because we will be able to work with it in the Inspector too.
 
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*Wn6UHRJhH1ZjNtfgKOciAA.gif)
+
 As you can see now I have a object in Canvas which is our text.
+
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*W1FWnlGEmW1Bud4_-OVzEA.png)
 
 And now we can work with text from code, which is pretty cool, like we can edit text in real time after some or according to some action in game.
 

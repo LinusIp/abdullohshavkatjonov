@@ -13,6 +13,8 @@ To use PoweUp logic I used if/else statements, it’s good, but when I have 10 o
 
 Here’s the if/else version of PowerUp logic
 
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*YggQG4QP6_8KUgL66TB7xQ.png)
+
 ```csharp
                if(powerupID == 0)
                {
@@ -29,6 +31,8 @@ Here’s the if/else version of PowerUp logic
 ```
 
 And here’s the switch(case) version of PowerUp logic
+
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*gOHnbJ1x_C0pncbrdEEtlQ.png)
 
 ```csharp
                 switch (powerupID)

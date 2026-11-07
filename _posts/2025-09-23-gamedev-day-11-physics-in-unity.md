@@ -12,7 +12,11 @@ Today we will learn how to create physics in Unity.
 
 So first of all we need to create an environment like in the following video.
 
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*tb58rhax89GqRwUHhkdXsA.gif)
+
 After that we need to select an object to what we want to add physics, and in right side go to **Inspector** and go down and click **Add Component** button and search for **Rigidbody** and select it and after that it will show up a new setting in **Inspector** window which is **Rigidbody** and there you can see settings such as mass and etc.
+
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*lheAN8eEozbPCOL3hw3uGA.gif)
 
 And now we can see the result of our work, as you see now our sphere behaves as a ball in real world.
 

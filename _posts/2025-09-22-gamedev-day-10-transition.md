@@ -12,11 +12,19 @@ Today we will learn how to Create a transition, so that our object automatically
 
 In order to create Transition we need to select object ad go to Animator window and right click to our action and there as you can see few options One of them is Transition, click to Transition and when you click will appear a arrow and you need to connect it to second action and right click to second action and select Transition and connect second arrow to first action.
 
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*DRGB7ch-VHGoIuv8rTnnpQ.gif)
+
 After that we need to play our Game view and as you can see, now our cube has two actions.
+
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*LTreMVQw-8b_wP80K3lCxw.gif)
 
 But it’s to fast, to fix that we need to go to Animator window and select our action, when you select, you can see in right side of you screen an Inspector window and here you can set speed by changing the value of Speed : 1 to 0.25 or etc.
 
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*9U2FZjQ3mVRvZvKA12gz4w.gif)
+
 After setting speed of both of the actions as 0.25 we can see that our cube moves not to fast.
+
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*921r-Laoe_vLd-sMmxeDXA.gif)
 
 You also can set speed not just 0.25 but other values too.
 

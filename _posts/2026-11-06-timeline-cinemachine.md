@@ -18,7 +18,11 @@ Cinemachine and Timeline in my opinion are one of the best thing in Unity, such 
 
 To setup Virtual cameras in Unity, first I installed Cinemachine from Package Manager → UnityRegistry → Cinemachine
 
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*Pz-7hXroNxZFzQrCQSxIDA.png)
+
 Then I created a Cinemachine Virtual Camera by right clicking the mouse button in Hierarchy
+
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*ZzbkAfNu0VH5Vo-_IwJQwQ.png)
 
 **Complete ‘Aiming Features in Cinemachine’**
 

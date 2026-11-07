@@ -10,6 +10,8 @@ medium_url: https://medium.com/@250503_98463/new-speed-feature-409263618e88
 ---
 I wanted to move the player at an increased rate when the ‘Left Shift’ key is pressed down. Reset back to normal speed when the ‘Left Shift’ key is released. So how I can do it first I set a logic in Players CalculateMovement() method.
 
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*-KrVqjka2aFImvP6nGHXxw.png)
+
 ```csharp
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -23,7 +25,11 @@ I wanted to move the player at an increased rate when the ‘Left Shift’ key i
 
 So what this logic does, basically when we press LeftShift key it multiplies our speed by 2, and when we release the LeftShift key it devides \_speed variable by 2, which means it resets \_speed back to normal and like this I got a new feature.
 
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*YrdoxwGHC1WH-Z5KmTEqeg.png)
+
 And to check whether the LeftShift key is pressed or released I used Debug.Log() to print out it in console.
+
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*JK0r3eek-nvx77y9T8vM8w.gif)
 
 And this is how it is working, I guess it is pretty good. So, as always thanks for your attention, and don’t forget to subscribe to my other channels in other social platforms
 

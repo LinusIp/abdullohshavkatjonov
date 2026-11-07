@@ -12,6 +12,10 @@ Now I need to add the sound for PowerUp’s, to make this I use PlayClipAtPoint,
 
 For this I created a variable \_clip and with \[SerializeField\] make it so I can work with in the Inspector.
 
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*pwPwCvhbYmAyABGuEMS09w.png)
+
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*PJUTq6ND9cdhtAajfFHbcg.png)
+
 And I attached to it our power\_up\_sound, by selecting all three powerup prefabs.
 
 And now I can write a logic so that it will work at needed place.
@@ -49,6 +53,8 @@ private void OnTriggerEnter2D(Collider2D other)
 ```
 
 Here is the logic for our powerup’s colliding with the player and when it collides we tell play the audio
+
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*gI5u_nVUgLAT1MEpDsKs9w.png)
 
 By this I’m telling that play this \_clip to which assigned our power\_up\_sound at the position of our Player, basically when it reaches the position of our Player.
 

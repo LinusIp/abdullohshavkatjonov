@@ -16,11 +16,17 @@ Now If I add counter of clashing with enemy, I can know how many times I clashed
 
 For this I created a variables to count and set color of our shield.
 
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*i5xwPc6p4YDD45GkGa8R8A.png)
+
 Here I have a \_shieldRenderer which I will use to which I need to attach the Shields sprite in the Inspector, and I can change the color of the shields with it.
 
 So, now I need to modify the logic of the shield.
 
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*2FxLR-2LDc8AUMMecG7RjQ.png)
+
 Here when I’m colliding with enemy I’m checking if the shield is active if it is I’m incrementing the value of \_shieldUsage and then checking if I hit th enemy once I’m setting color of the shield a bit transparent, if I collided with enemy two times again I’m setting the color of enemy more transparent, if I clashed with enemy three times I’m turning of the shield.
+
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*lCofoejg89qD-SUUzzJD5Q.gif)
 
 And this is the result you can notice that each time when I’m colliding with enemy the shield is getting transparent.
 

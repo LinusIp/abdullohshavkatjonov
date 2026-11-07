@@ -13,11 +13,17 @@ I wanted to add a limit to Player firing lasers and I set it to 15.
 
 First I created a text which will appear when Player will reach the limit.
 
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*Qky57wWtG4za0yKIcelN8w.png)
+
 This is the variable for text,
+
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*GCjHYfivItAhP3jkQLUa1w.png)
 
 And this is the variable for laser firing limit.
 
 Then I build a logic for this limit inside of Player script
+
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*y38Jio3kuyXzD2aYncKUuw.png)
 
 ```csharp
 if (_ammoAmount > 1)
@@ -71,6 +77,8 @@ So that’s it, but here comes one question but what we will do after we run out
 The answer is simple we need to add a power up for this or we can use existing power up’s like TripleShot PowerUp.
 
 Which is quite easy to do all we need to do is resetting the value of \_ammoAmount when we collect TripleShot Power up.
+
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*yUKEG5NH4fUc-zqex2v5tw.png)
 
 Here when we run out of ammo if we will reset the value of \_ammoAmount back to 15 when we collect A TripleShot powerup we can fire again, problem solved, yes there also other approaches to solve this problem, but this is the fastest way to solve this problem
 

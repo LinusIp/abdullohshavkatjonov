@@ -5,7 +5,7 @@ Use these as the canonical link on each Medium story, so search engines credit t
 | Title | Date | Medium | New URL |
 |---|---|---|---|
 | Day one of learning GameDev | 2025-08-09 | https://medium.com/@250503_98463/day-one-of-learning-gamedev-1421c25d34f2 | https://linusip.github.io/abdullohshavkatjonov/2025/08/09/day-one-of-learning-gamedev.html |
-| Getting started with Unity”Day2” | 2025-08-10 | https://medium.com/@250503_98463/getting-started-with-unity-day2-e9d097679875 | https://linusip.github.io/abdullohshavkatjonov/2025/08/10/getting-started-with-unity-day2.html |
+| Getting started with Unity”Day2” | 2025-08-10 | https://medium.com/@250503_98463/getting-started-with-unity-day2-e9d097679875 | https://linusip.github.io/abdullohshavkatjonov/2025/08/10/getting-started-with-unityday2.html |
 | Day 3 of GameDev | 2025-08-14 | https://medium.com/@250503_98463/day-3-of-gamedev-8919eeffc239 | https://linusip.github.io/abdullohshavkatjonov/2025/08/14/day-3-of-gamedev.html |
 | GameDev(Day: 4, 5, 6) | 2025-08-28 | https://medium.com/@250503_98463/gamedev-day-4-5-6-dd0bbd813d13 | https://linusip.github.io/abdullohshavkatjonov/2025/08/28/gamedev-day-4-5-6.html |
 | GameDev day 7 | 2025-09-18 | https://medium.com/@250503_98463/gamedev-day-7-5e7730d5fdc9 | https://linusip.github.io/abdullohshavkatjonov/2025/09/18/gamedev-day-7.html |

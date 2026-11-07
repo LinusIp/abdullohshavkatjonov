@@ -43,6 +43,8 @@ moving of our character, by adding a user input.
 
 To add user input we need to create a variable according to what we want to get from user in our case we want to get in which direction user want to move our character. So we will create a variable with name of “horizontalInput” ant its type will be float, bc the direction can be a floating pint number, after that we need to get this input from user for this we will use “Input.GetAxis” and the value what we’re expecting is Horizontal, why Horizontal not smth. else?, well bc in Unity in InputManager in Axes you can see that it was set as “Horizontal” for Horizontal direction and “Vertical” for vertical direction. This can be explained by imagining our game environment as 2 dimension space where you can move up/down and right/left, like user will press “WASD” keyboards and according to them Unity will know in which direction it will go. To see what is the Name of Horizontal and Vertical Axes are you need to go to Edit → Project Settings → Input Manager → Axes → Horizontal/Vertical. This is essential, bc if you give a wrong Name to “Input.GetAxes()” Unity can’t understand when user presses given button.
 
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*IFoENseneaPGs_BZ52iBGQ.gif)
+
 ```csharp
 using System.Collections;
 using System.Collections.Generic;

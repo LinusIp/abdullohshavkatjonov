@@ -8,6 +8,8 @@ reading_style: essay
 description: "Now I came to adding the Audio to my game which is one of the main features of game which gives a unique vibe while gamin."
 medium_url: https://medium.com/@250503_98463/immersion-starts-with-sound-33d801076390
 ---
+![Picture from this post](https://cdn-images-1.medium.com/max/800/1*XMxBMigTJg5DRwubcz7aBg.gif)
+
 Now I came to adding the Audio to my game which is one of the main features of game which gives a unique vibe while gamin.
 
 So, first I started with adding the background music, to add this music and control all other audio effects I created a Audio\_Manager in the Hierarchy and also created a background for background music inside of Audio\_Manager, then I added the Audio Source component to background audio. and attached the bacground\_music from our Project window to Audio\_clip in Audio Source component and that’s how I got a amazing background music.
