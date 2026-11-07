@@ -32,6 +32,10 @@ content:
         description: One category per row, for example coding, life, gamedev or project. Type a new name to start a new category; the blog gets a filter for it automatically. Capitals and extra spaces are ignored.
         type: string
         list: true
+      - name: medium_url
+        label: Original Medium link (optional)
+        description: Shown at the end of the post as "Originally published on Medium". Leave empty for posts that were never on Medium.
+        type: string
       - name: reading_style
         label: Reading style
         description: Essay is the normal layout. Technical widens code blocks, tables and images, adds a link to every heading, and shows an "On this page" list when the post has 3 or more headings.
