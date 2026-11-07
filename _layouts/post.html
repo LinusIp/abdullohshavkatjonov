@@ -42,6 +42,9 @@ layout: default
   <div class="prose" itemprop="articleBody">
 {{ _body }}
   </div>
+  {%- if page.medium_url %}
+  <p class="post-origin meta">Originally published on <a href="{{ page.medium_url | escape }}" rel="noopener">Medium</a></p>
+  {%- endif %}
   {%- if page.previous or page.next %}
   <nav class="post-pager" aria-label="More posts">
     {%- if page.previous %}
