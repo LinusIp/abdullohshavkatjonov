@@ -72,9 +72,9 @@ The answer is simple we need to add a power up for this or we can use existing p
 
 Which is quite easy to do all we need to do is resetting the value of \_ammoAmount when we collect TripleShot Power up.
 
-Here when we run out of ammo if we will reset the value of \_ammoAmount back to 15 when we collect A TripleShot powerup we can fire again, problem solved, yes there also other approaches to solve this problem, but this is the fastest way to solve this problem!)
+Here when we run out of ammo if we will reset the value of \_ammoAmount back to 15 when we collect A TripleShot powerup we can fire again, problem solved, yes there also other approaches to solve this problem, but this is the fastest way to solve this problem
 
-And as always thanks for your attention, and don’t forget to follow me in other social media platforms!)
+And as always thanks for your attention, and don’t forget to follow me in other social media platforms
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

@@ -29,7 +29,7 @@ else if(powerupID == 2)
 
 And according to ID’s I will know which powerup it is and what it should do.
 
-As you see when we collect speed powerup niw console print “Speed PowerUp Collected!” and when we collect TripleShot PowerUp we are getting triple shot. So now is the time to write a full logic for all powerup’s. Thanks for your attention and don’t forget to follow me in other social media platforms!)
+As you see when we collect speed powerup niw console print “Speed PowerUp Collected!” and when we collect TripleShot PowerUp we are getting triple shot. So now is the time to write a full logic for all powerup’s. Thanks for your attention and don’t forget to follow me in other social media platforms
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

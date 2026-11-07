@@ -16,7 +16,7 @@ After that we need to select an object to what we want to add physics, and in ri
 
 And now we can see the result of our work, as you see now our sphere behaves as a ball in real world.
 
-As always thanks for your attention guys, and don’t forgot to subscribe me in other social platforms in order to get fresh news in my journey into Game Development!)
+As always thanks for your attention guys, and don’t forgot to subscribe me in other social platforms in order to get fresh news in my journey into Game Development
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

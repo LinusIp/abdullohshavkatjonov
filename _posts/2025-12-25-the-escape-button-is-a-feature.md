@@ -18,7 +18,7 @@ Application.Quit();
 
 I’m quitting the game and here is the result:
 
-And that was all, as always thanks for your attention and don’t forget to follow me in other social media platforms too!)
+And that was all, as always thanks for your attention and don’t forget to follow me in other social media platforms too
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

@@ -33,7 +33,7 @@ And then I created a new button and then I added a new **OnClick()** action in i
 
 So this is all as you can is even if it seems hard at the beginning it may be super easy.
 
-And as always thanks for your attention, and don’t forget to follow me in other socail media platofrms!)
+And as always thanks for your attention, and don’t forget to follow me in other socail media platofrms
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

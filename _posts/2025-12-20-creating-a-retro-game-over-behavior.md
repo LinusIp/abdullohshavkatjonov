@@ -26,7 +26,7 @@ first it will print **GAME OVER** the it will wait 0.5 seconds and after that it
 
 So this is how we get a **GAME OVER** flicker animation at the end of the game when player dies.
 
-And as always thanks for your attention, and don’t forget to subscribe to me in other social media platforms!)
+And as always thanks for your attention, and don’t forget to subscribe to me in other social media platforms
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

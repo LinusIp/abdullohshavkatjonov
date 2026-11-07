@@ -21,11 +21,11 @@ I wanted to move the player at an increased rate when the ‘Left Shift’ key i
         }
 ```
 
-So what this logic does, basically when we press LeftShift key it multiplies our speed by 2, and when we release the LeftShift key it devides \_speed variable by 2, which means it resets \_speed back to normal and like this I got a new feature.!)
+So what this logic does, basically when we press LeftShift key it multiplies our speed by 2, and when we release the LeftShift key it devides \_speed variable by 2, which means it resets \_speed back to normal and like this I got a new feature.
 
 And to check whether the LeftShift key is pressed or released I used Debug.Log() to print out it in console.
 
-And this is how it is working, I guess it is pretty good. So, as always thanks for your attention, and don’t forget to subscribe to my other channels in other social platforms!)
+And this is how it is working, I guess it is pretty good. So, as always thanks for your attention, and don’t forget to subscribe to my other channels in other social platforms
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

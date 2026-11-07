@@ -25,7 +25,7 @@ By doing so I removed all memory allocation from being used during our while loo
 
 And the program works same as before without errors.
 
-So, as always thanks for your attention, and don’t forget to follow me in other social media platforms!)
+So, as always thanks for your attention, and don’t forget to follow me in other social media platforms
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

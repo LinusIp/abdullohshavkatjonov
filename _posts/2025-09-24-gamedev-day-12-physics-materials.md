@@ -31,7 +31,7 @@ And now we finally arrived to the part where we will add a bounce to our ball, b
 
 And so like this you got a bouncing ball.
 
-And now as always thanks for your attention guys and don’t forgot to subscribe to me on other social platforms!)
+And now as always thanks for your attention guys and don’t forgot to subscribe to me on other social platforms
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

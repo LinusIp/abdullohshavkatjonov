@@ -10,7 +10,7 @@ medium_url: https://medium.com/@250503_98463/creating-enemy-explosions-81e1ccb4f
 ---
 I created the Enemy explosion, but I got sum bugs which I solved, but still there some work need to be done.
 
-So basically this is the result, not best one, but better!) First of all I created the animation for Enemy, by creating a new animation for Enemy.
+So basically this is the result, not best one, but better First of all I created the animation for Enemy, by creating a new animation for Enemy.
 
 After I got the right animation I opened Animator window by clicking the Enemy animator in the Project window.
 
@@ -32,7 +32,7 @@ And here left one more thing to do which is exploiding enemies right after they 
 
 So like this we need to turn off Has Exit Time and set the value of Transition Duration to 0.
 
-That was all, and as always thanks for your attention and don’t forget to subscribe to me inn ither social media platforms!)
+That was all, and as always thanks for your attention and don’t forget to subscribe to me inn ither social media platforms
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

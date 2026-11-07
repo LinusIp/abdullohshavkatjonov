@@ -18,7 +18,7 @@ So now as you can see we added a new animation to our cube, but here one problem
 
 To fix that we nee to go to Animator window and right click to our second animation which’s name is a **cube\_way** and select Set as **Layer Default State.**
 
-Now s you can see we got our new animation, I hope it was usefull. Thanks for you attention and don’t forget to subscribe to my other social media profiles to get daily news of my journey into Game Development!)
+Now s you can see we got our new animation, I hope it was usefull. Thanks for you attention and don’t forget to subscribe to my other social media profiles to get daily news of my journey into Game Development
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

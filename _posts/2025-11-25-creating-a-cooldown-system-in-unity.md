@@ -34,7 +34,7 @@ For example in this case we want to stop for 0.15 seconds and then shoot again.
 
 Like we told here we are using cooldown to have a short small time between each shot, so we use a cooldown logic, first we are checking if the current time is greater than our needed time here we use **\_canFire** variable which is the variable to store a time after each iteration. First the **\_canFire** is equal to -1 and lets say our current time is equal to 1 which means our if statement is true and then we update **\_canFire** now it is equal to “1 current time + 0.15 our fire rate” which is equal to 1.15 which means now the if statement is not true until our current time will be grater than updated **\_canFire** and then we will update our \_canfire like this it will iterate till the end of our game. Like this we got a cool cooldown effect.
 
-As always thanks for your attention and also do not forget to subscribe to me in other social media platforms!)
+As always thanks for your attention and also do not forget to subscribe to me in other social media platforms
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

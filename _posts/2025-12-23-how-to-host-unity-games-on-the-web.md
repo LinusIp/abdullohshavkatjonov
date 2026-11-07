@@ -18,7 +18,7 @@ But when clicked to run the game I got this error, so I find what the problem is
 
 So here is the result:
 
-And that is our game it is not final version, but still interesting. Thanks for your attention and as always don’t forget to follow me in other social platforms!)
+And that is our game it is not final version, but still interesting. Thanks for your attention and as always don’t forget to follow me in other social platforms
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

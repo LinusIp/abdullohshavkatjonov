@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
 
 In code space above you can se a full code of this user input and action taking based on this input, so what we are doing, we are getting a value from user and multiplying it by “Vector3.up” which is the upward coordinate of our character multiplied by “horizontalInput/verticalInput” which are the inputs from user multiplied by “\_speed” which is a variable whicc contains a value of speed on what we will move multiplied by “Time.deltaTime” which is the time in seconds. So we are getting all values and after making a mathematical calculation getting a new coordinate of our character.
 
-So this was all for today, thanks for reading, hope it will be useful to you guys and pls also dom’t forget to follow me on other social platforms too!)
+So this was all for today, thanks for reading, hope it will be useful to you guys and pls also dom’t forget to follow me on other social platforms too
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

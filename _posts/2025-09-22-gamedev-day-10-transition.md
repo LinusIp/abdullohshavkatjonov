@@ -20,7 +20,7 @@ After setting speed of both of the actions as 0.25 we can see that our cube move
 
 You also can set speed not just 0.25 but other values too.
 
-As always thanks for your attention, and one more thing don’t forgot to subscribe to me on other social media platforms too!)
+As always thanks for your attention, and one more thing don’t forgot to subscribe to me on other social media platforms too
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

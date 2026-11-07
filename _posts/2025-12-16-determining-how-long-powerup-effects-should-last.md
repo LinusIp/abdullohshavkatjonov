@@ -12,7 +12,7 @@ So now I added Tripleshot feature which allows to fire three at once instead of 
 
 So we need to determine which timing will be best for our Triple shot, let’s say 10 but still it is a bit short what about 20 i guess it’s a bit long, so I decided ti stay in the middle and chose 15 second, which is kind of perfect for being able to shoot as much as more enemies and not to get bored.
 
-And like this we got coll feature, so thats all, and as always thanks for your attention, and don’t forget to follow me in other social media platforms, thanks!)
+And like this we got coll feature, so thats all, and as always thanks for your attention, and don’t forget to follow me in other social media platforms, thanks
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

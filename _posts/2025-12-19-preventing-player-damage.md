@@ -50,7 +50,7 @@ Here you can see that at the beginning we have a 3 lives and after we collect Sh
 
 So like this I add a Shield PowerUp to my game.
 
-And as always thanks for your attention and don’t forget to subscribe to me in other social media accounts!)
+And as always thanks for your attention and don’t forget to subscribe to me in other social media accounts
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

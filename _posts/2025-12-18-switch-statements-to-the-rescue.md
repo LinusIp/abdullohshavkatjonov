@@ -52,7 +52,7 @@ We can se that as the umber of statements increases it gets hard to read and wri
 
 So then we use switch(case), to make our job easier.
 
-And that was all, thanks for your attention, and as always don’t forget to follow me in other social media platforms!)
+And that was all, thanks for your attention, and as always don’t forget to follow me in other social media platforms
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

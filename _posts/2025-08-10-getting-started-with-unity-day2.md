@@ -1,5 +1,5 @@
 ---
-title: "Getting started with Unity!)”Day2”"
+title: "Getting started with Unity”Day2”"
 date: 2025-08-10 18:53:46 +0000
 layout: post
 topics:
@@ -32,7 +32,7 @@ In the right bottom corner of the Scene you can see the live view of our object,
 
 And after adding object you can run it, to do so you must to press a play button.
 
-This was all for today, thanks for your attention!) Also don’t forgot follow to my other social media accounts!)
+This was all for today, thanks for your attention Also don’t forgot follow to my other social media accounts
 
 [https://www.instagram.com/abdulloh_shavkatjonov_/](https://www.instagram.com/abdulloh_shavkatjonov_/)
 

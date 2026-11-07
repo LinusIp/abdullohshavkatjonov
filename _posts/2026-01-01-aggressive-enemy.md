@@ -52,4 +52,4 @@ Here the logic of moving to player side if \_isRamming is true, yes I’m not us
 
 And here is our main logic of enemy first it calculates the distance between its own position and players position then is checks as I meantioned earlier whether \_isRamming is true or not, if it is it cals the Ramming method, if it is not it just calls CalculateMovement which calculates enemies movement if it is time to fire laser then it calls FireLaser method.
 
-So that was all, and as always thanks for your attention!)
+So that was all, and as always thanks for your attention

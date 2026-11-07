@@ -4,12 +4,12 @@ Use these as the canonical link on each Medium story, so search engines credit t
 
 | Title | Date | Medium | New URL |
 |---|---|---|---|
-| Day one of learning GameDev!) | 2025-08-09 | https://medium.com/@250503_98463/day-one-of-learning-gamedev-1421c25d34f2 | https://linusip.github.io/abdullohshavkatjonov/2025/08/09/day-one-of-learning-gamedev.html |
-| Getting started with Unity!)”Day2” | 2025-08-10 | https://medium.com/@250503_98463/getting-started-with-unity-day2-e9d097679875 | https://linusip.github.io/abdullohshavkatjonov/2025/08/10/getting-started-with-unity-day2.html |
-| Day 3 of GameDev!) | 2025-08-14 | https://medium.com/@250503_98463/day-3-of-gamedev-8919eeffc239 | https://linusip.github.io/abdullohshavkatjonov/2025/08/14/day-3-of-gamedev.html |
-| GameDev(Day: 4, 5, 6)!) | 2025-08-28 | https://medium.com/@250503_98463/gamedev-day-4-5-6-dd0bbd813d13 | https://linusip.github.io/abdullohshavkatjonov/2025/08/28/gamedev-day-4-5-6.html |
-| GameDev day 7!) | 2025-09-18 | https://medium.com/@250503_98463/gamedev-day-7-5e7730d5fdc9 | https://linusip.github.io/abdullohshavkatjonov/2025/09/18/gamedev-day-7.html |
-| GameDev Day 8!) | 2025-09-20 | https://medium.com/@250503_98463/gamedev-day-8-9c77b65506a7 | https://linusip.github.io/abdullohshavkatjonov/2025/09/20/gamedev-day-8.html |
+| Day one of learning GameDev | 2025-08-09 | https://medium.com/@250503_98463/day-one-of-learning-gamedev-1421c25d34f2 | https://linusip.github.io/abdullohshavkatjonov/2025/08/09/day-one-of-learning-gamedev.html |
+| Getting started with Unity”Day2” | 2025-08-10 | https://medium.com/@250503_98463/getting-started-with-unity-day2-e9d097679875 | https://linusip.github.io/abdullohshavkatjonov/2025/08/10/getting-started-with-unity-day2.html |
+| Day 3 of GameDev | 2025-08-14 | https://medium.com/@250503_98463/day-3-of-gamedev-8919eeffc239 | https://linusip.github.io/abdullohshavkatjonov/2025/08/14/day-3-of-gamedev.html |
+| GameDev(Day: 4, 5, 6) | 2025-08-28 | https://medium.com/@250503_98463/gamedev-day-4-5-6-dd0bbd813d13 | https://linusip.github.io/abdullohshavkatjonov/2025/08/28/gamedev-day-4-5-6.html |
+| GameDev day 7 | 2025-09-18 | https://medium.com/@250503_98463/gamedev-day-7-5e7730d5fdc9 | https://linusip.github.io/abdullohshavkatjonov/2025/09/18/gamedev-day-7.html |
+| GameDev Day 8 | 2025-09-20 | https://medium.com/@250503_98463/gamedev-day-8-9c77b65506a7 | https://linusip.github.io/abdullohshavkatjonov/2025/09/20/gamedev-day-8.html |
 | GameDev Day:9 “Multi Animation” | 2025-09-21 | https://medium.com/@250503_98463/gamedev-day-9-multi-animation-6d52e7dc0adb | https://linusip.github.io/abdullohshavkatjonov/2025/09/21/gamedev-day-9-multi-animation.html |
 | GameDev Day:10 “Transition” | 2025-09-22 | https://medium.com/@250503_98463/gamedev-day-10-transition-c7a7bac52742 | https://linusip.github.io/abdullohshavkatjonov/2025/09/22/gamedev-day-10-transition.html |
 | GameDev Day: 11 “Physics in Unity” | 2025-09-23 | https://medium.com/@250503_98463/gamedev-day-11-physics-in-unity-9b2b8f385e5a | https://linusip.github.io/abdullohshavkatjonov/2025/09/23/gamedev-day-11-physics-in-unity.html |
@@ -51,5 +51,5 @@ Use these as the canonical link on each Medium story, so search engines credit t
 | Different Movement of Enemies | 2026-01-03 | https://medium.com/@250503_98463/different-movement-of-enemies-5f7d05cda09f | https://linusip.github.io/abdullohshavkatjonov/2026/01/03/different-movement-of-enemies.html |
 | Health Power Up | 2026-01-03 | https://medium.com/@250503_98463/health-power-up-36c80e096673 | https://linusip.github.io/abdullohshavkatjonov/2026/01/03/health-power-up.html |
 | Enemy Waves | 2026-01-06 | https://medium.com/@250503_98463/enemy-waves-618c5236448d | https://linusip.github.io/abdullohshavkatjonov/2026/01/06/enemy-waves.html |
-| Debugging my game!) | 2026-01-08 | https://medium.com/@250503_98463/debugging-my-game-157c3e302728 | https://linusip.github.io/abdullohshavkatjonov/2026/01/08/debugging-my-game.html |
+| Debugging my game | 2026-01-08 | https://medium.com/@250503_98463/debugging-my-game-157c3e302728 | https://linusip.github.io/abdullohshavkatjonov/2026/01/08/debugging-my-game.html |
 | Timeline & Cinemachine | 2026-11-06 | https://medium.com/@250503_98463/timeline-cinemachine-acc3462fc4d9 | https://linusip.github.io/abdullohshavkatjonov/2026/11/06/timeline-cinemachine.html |

@@ -29,7 +29,7 @@ And inside of this SpeedBooster() I added a color changing logic.
 
 So here I’m checking if the LeftShift key is pressed I’m multiplying the speed by 2 and changing color, if I released the key then I’m dividing current speed by 2 and setting the color back to white.
 
-And here is the final result!) So as always thanks for your attention and don’t forget to follow me in other social media platforms!)
+And here is the final result So as always thanks for your attention and don’t forget to follow me in other social media platforms
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

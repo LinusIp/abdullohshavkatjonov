@@ -52,7 +52,7 @@ Here is the logic for our powerup’s colliding with the player and when it coll
 
 By this I’m telling that play this \_clip to which assigned our power\_up\_sound at the position of our Player, basically when it reaches the position of our Player.
 
-And that’s all, thanks for your attention, and as always don’t forget to follow me in other social media platforms too!)
+And that’s all, thanks for your attention, and as always don’t forget to follow me in other social media platforms too
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

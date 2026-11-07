@@ -22,9 +22,9 @@ The next step was the logic of the Health powerup itself how it will work and wh
 
 Yep, it is so here is the method for it
 
-When we clash with it and when we call it it just adds one to \_lives variable and thats all and thats how I got an extra life powerup, the loved one of most players!)
+When we clash with it and when we call it it just adds one to \_lives variable and thats all and thats how I got an extra life powerup, the loved one of most players
 
-So that was all for now and as always thanks for your attention and don’t forget to follow me in other social media platforms!)
+So that was all for now and as always thanks for your attention and don’t forget to follow me in other social media platforms
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

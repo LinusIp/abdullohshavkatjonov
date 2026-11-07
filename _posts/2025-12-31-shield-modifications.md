@@ -24,7 +24,7 @@ Here when I’m colliding with enemy I’m checking if the shield is active if i
 
 And this is the result you can notice that each time when I’m colliding with enemy the shield is getting transparent.
 
-So, this was all for now, thanks for your attention and don’t forget to follow me in other social media platforms!)
+So, this was all for now, thanks for your attention and don’t forget to follow me in other social media platforms
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

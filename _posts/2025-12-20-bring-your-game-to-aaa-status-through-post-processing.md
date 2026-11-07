@@ -16,7 +16,7 @@ And after that we need to adjust this post process to our Main Camera, to do thi
 
 And the I can go to the Inspector window of Post Process Volume and a new effects like Bloom, Color Grading, and more. And work with them and edit add new effects like in photoshop and that helps to make game more visually stunning.
 
-So, that was all and as always thanks for your attention and don’t forget to subscribe to my channels in other social media platforms!)
+So, that was all and as always thanks for your attention and don’t forget to subscribe to my channels in other social media platforms
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

@@ -41,7 +41,7 @@ As you can see now I have a object in Canvas which is our text.
 
 And now we can work with text from code, which is pretty cool, like we can edit text in real time after some or according to some action in game.
 
-So, now as always, don’t forget to follow me in other social media platforms!)
+So, now as always, don’t forget to follow me in other social media platforms
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

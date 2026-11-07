@@ -10,9 +10,9 @@ medium_url: https://medium.com/@250503_98463/starting-to-feel-like-a-real-video-
 ---
 At the beginning it was just a cube moving around, but now it really started looking like a real video game.
 
-So I think that looks pretty good, yep there is the thing to add, but this is good start!)
+So I think that looks pretty good, yep there is the thing to add, but this is good start
 
-And as always don’t follow me in other social media platforms!)
+And as always don’t follow me in other social media platforms
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

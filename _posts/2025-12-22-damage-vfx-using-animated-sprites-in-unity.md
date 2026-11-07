@@ -33,7 +33,7 @@ So this is how it will animate, and now we can test it out in game.
 
 So now our game is looking Incredible with VFX effects.
 
-That was all, and as always thanks for your attention and don’t forget to follow me in other social media platforms!)
+That was all, and as always thanks for your attention and don’t forget to follow me in other social media platforms
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 

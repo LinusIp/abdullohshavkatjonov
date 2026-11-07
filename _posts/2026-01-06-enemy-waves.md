@@ -40,4 +40,4 @@ Then Updated my current SpawnEnemyRoutine() and created a new method to spawn en
 
 After spawning all enemies I’m checking is the enemy container is empty.
 
-So that’s is all for now and as always thanks for your attention!)
+So that’s is all for now and as always thanks for your attention

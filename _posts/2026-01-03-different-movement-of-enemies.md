@@ -12,9 +12,9 @@ When I’m playing the game Enemies are moving from top to bottom, and I want to
 
 Only thing to change was the directions to which they are going in **CalculateMovement()** from **Vector3.down** to **Vector3.left** or **Vector3.right** based on how you want.
 
-And so like this the Enemies are moving in different direction!)
+And so like this the Enemies are moving in different direction
 
-That was all and as always thanks for your attention and don’t forget to follow me in other social media platforms!)
+That was all and as always thanks for your attention and don’t forget to follow me in other social media platforms
 
 [https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD](https://youtube.com/@shavkatjonovabdulloh?si=fC4GFIr2mKpEeQYD)
 
