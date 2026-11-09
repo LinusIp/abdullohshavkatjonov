@@ -141,7 +141,8 @@
     },
 
     autumn: {
-      count: [8, 5],
+      //count: [8, 5],
+      count: [15, 5],
       period: function (F) { return (F.h + 60) / 20; },
       init: function (p, R, F, S) {
         var d = p.d;
@@ -618,8 +619,8 @@
       season: html.getAttribute('data-season') || 'winter',
       avoid: host.querySelectorAll('[data-motion-avoid]'),
       rest: host.querySelector('[data-motion-rest]'),
-      //trace: /[?&]motion=trace\b/.test(location.search)
-      trace: true
+      trace: /[?&]motion=trace\b/.test(location.search)
+      //trace: true
     });
     var season = html.getAttribute('data-season');
     if ('MutationObserver' in root) {
