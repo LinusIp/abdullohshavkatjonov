@@ -618,7 +618,8 @@
       season: html.getAttribute('data-season') || 'winter',
       avoid: host.querySelectorAll('[data-motion-avoid]'),
       rest: host.querySelector('[data-motion-rest]'),
-      trace: /[?&]motion=trace\b/.test(location.search)
+      //trace: /[?&]motion=trace\b/.test(location.search)
+      trace: true
     });
     var season = html.getAttribute('data-season');
     if ('MutationObserver' in root) {
