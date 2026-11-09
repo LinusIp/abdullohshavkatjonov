@@ -141,8 +141,7 @@
     },
 
     autumn: {
-      //count: [8, 5],
-      count: [10, 5],
+      count: [8, 5],
       period: function (F) { return (F.h + 60) / 20; },
       init: function (p, R, F, S) {
         var d = p.d;
